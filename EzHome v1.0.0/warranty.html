@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warranty Information - EzHome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">EzHome</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                    <div id="user-auth" class="d-flex">
+                        <a href="#" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    </div>
+                    <div id="cart-icon" class="ms-3">
+                        <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="help.html">Help</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Warranty</li>
+            </ol>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h1 class="display-4 fw-bold text-primary mb-3">
+                    <i class="fas fa-shield-alt me-3"></i>Warranty Information
+                </h1>
+                <p class="lead text-muted">Comprehensive warranty coverage for your EzHome smart devices</p>
+            </div>
+        </div>
+
+        <!-- Warranty Overview -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="text-primary mb-3">Warranty Coverage</h3>
+                            <p class="lead">All EzHome products come with comprehensive warranty protection to ensure your smart home investment is safeguarded.</p>
+                            
+                            <div class="row g-4 mt-3">
+                                <div class="col-md-4 text-center">
+                                    <div class="warranty-feature">
+                                        <i class="fas fa-calendar-alt fa-3x text-primary mb-3"></i>
+                                        <h5>Standard Warranty</h5>
+                                        <p class="text-muted">1-2 years coverage on all devices</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="warranty-feature">
+                                        <i class="fas fa-tools fa-3x text-success mb-3"></i>
+                                        <h5>Free Repairs</h5>
+                                        <p class="text-muted">No cost repairs for covered defects</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="warranty-feature">
+                                        <i class="fas fa-sync-alt fa-3x text-info mb-3"></i>
+                                        <h5>Replacement</h5>
+                                        <p class="text-muted">Device replacement if repair isn't possible</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warranty Terms by Product -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4">Warranty Terms by Product</h2>
+            
+            <div class="accordion" id="warrantyAccordion">
+                <!-- Echo Hub Warranty -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="echoHubWarrantyHeading">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#echoHubWarrantyCollapse" aria-expanded="true" aria-controls="echoHubWarrantyCollapse">
+                            <i class="fas fa-home text-primary me-3"></i>
+                            <strong>Echo Hub Series - 2 Year Warranty</strong>
+                        </button>
+                    </h2>
+                    <div id="echoHubWarrantyCollapse" class="accordion-collapse collapse show" aria-labelledby="echoHubWarrantyHeading" data-bs-parent="#warrantyAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h5 class="text-success">What's Covered:</h5>
+                                    <ul class="mb-4">
+                                        <li>Manufacturing defects</li>
+                                        <li>Hardware malfunctions</li>
+                                        <li>Voice recognition issues</li>
+                                        <li>Wi-Fi connectivity problems</li>
+                                        <li>Power supply failures</li>
+                                        <li>Software bugs and glitches</li>
+                                    </ul>
+                                    
+                                    <h5 class="text-danger">What's Not Covered:</h5>
+                                    <ul>
+                                        <li>Physical damage from drops or impacts</li>
+                                        <li>Water damage or liquid spills</li>
+                                        <li>Damage from power surges</li>
+                                        <li>Unauthorized modifications</li>
+                                        <li>Normal wear and tear</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="warranty-info bg-light p-3 rounded">
+                                        <h6 class="text-primary"><i class="fas fa-info-circle me-2"></i>Quick Facts</h6>
+                                        <ul class="small text-muted mb-0 list-unstyled">
+                                            <li><strong>Duration:</strong> 24 months</li>
+                                            <li><strong>Registration:</strong> Required within 30 days</li>
+                                            <li><strong>Transferable:</strong> Yes, with proof of purchase</li>
+                                            <li><strong>International:</strong> Valid worldwide</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Devices Warranty -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="smartDevicesWarrantyHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#smartDevicesWarrantyCollapse" aria-expanded="false" aria-controls="smartDevicesWarrantyCollapse">
+                            <i class="fas fa-lightbulb text-warning me-3"></i>
+                            <strong>Smart Devices - 1 Year Warranty</strong>
+                        </button>
+                    </h2>
+                    <div id="smartDevicesWarrantyCollapse" class="accordion-collapse collapse" aria-labelledby="smartDevicesWarrantyHeading" data-bs-parent="#warrantyAccordion">
+                        <div class="accordion-body">
+                            <p class="text-muted mb-3">Covers: Smart LED Bulbs, Smart Outlets, Smart Switches, Motion Sensors, Door/Window Sensors</p>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-success">Covered Issues:</h6>
+                                    <ul>
+                                        <li>LED burnout or flickering</li>
+                                        <li>Connectivity failures</li>
+                                        <li>Sensor malfunctions</li>
+                                        <li>App integration problems</li>
+                                        <li>Power delivery issues</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-danger">Not Covered:</h6>
+                                    <ul>
+                                        <li>Electrical damage from faulty wiring</li>
+                                        <li>Environmental damage</li>
+                                        <li>Incorrect installation damage</li>
+                                        <li>Cosmetic wear</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Systems Warranty -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="securityWarrantyHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#securityWarrantyCollapse" aria-expanded="false" aria-controls="securityWarrantyCollapse">
+                            <i class="fas fa-video text-info me-3"></i>
+                            <strong>Security Systems - 2 Year Warranty</strong>
+                        </button>
+                    </h2>
+                    <div id="securityWarrantyCollapse" class="accordion-collapse collapse" aria-labelledby="securityWarrantyHeading" data-bs-parent="#warrantyAccordion">
+                        <div class="accordion-body">
+                            <p class="text-muted mb-3">Covers: Smart Cameras, Door Locks, Security Sensors, Smoke Detectors</p>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-success">Covered:</h6>
+                                    <ul>
+                                        <li>Camera image quality issues</li>
+                                        <li>Recording failures</li>
+                                        <li>Motion detection problems</li>
+                                        <li>Lock mechanism defects</li>
+                                        <li>False alarm issues</li>
+                                        <li>Cloud connectivity problems</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="alert alert-info">
+                                        <i class="fas fa-star me-2"></i>
+                                        <strong>Premium Support:</strong> Security devices include 24/7 technical support and priority service.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Climate Control Warranty -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="climateWarrantyHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#climateWarrantyCollapse" aria-expanded="false" aria-controls="climateWarrantyCollapse">
+                            <i class="fas fa-thermometer-half text-danger me-3"></i>
+                            <strong>Climate Control - 3 Year Warranty</strong>
+                        </button>
+                    </h2>
+                    <div id="climateWarrantyCollapse" class="accordion-collapse collapse" aria-labelledby="climateWarrantyHeading" data-bs-parent="#warrantyAccordion">
+                        <div class="accordion-body">
+                            <p class="text-muted mb-3">Covers: Smart Thermostats, Air Purifiers, Irrigation Controllers</p>
+                            
+                            <div class="alert alert-success">
+                                <i class="fas fa-tools me-2"></i>
+                                <strong>Professional Installation Included:</strong> Free installation service and extended warranty coverage.
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6 class="text-success">Extended Coverage Includes:</h6>
+                                    <ul>
+                                        <li>Temperature sensor accuracy</li>
+                                        <li>HVAC integration issues</li>
+                                        <li>Scheduling and automation failures</li>
+                                        <li>Energy efficiency problems</li>
+                                        <li>Filter replacement reminders</li>
+                                        <li>Weather integration issues</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warranty Process -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4">How to File a Warranty Claim</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center warranty-step">
+                        <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <strong>1</strong>
+                        </div>
+                        <h5>Contact Support</h5>
+                        <p class="text-muted">Call our support line or submit an online warranty claim form.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center warranty-step">
+                        <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <strong>2</strong>
+                        </div>
+                        <h5>Provide Information</h5>
+                        <p class="text-muted">Share your purchase receipt, product serial number, and issue description.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center warranty-step">
+                        <div class="step-number bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <strong>3</strong>
+                        </div>
+                        <h5>Diagnosis</h5>
+                        <p class="text-muted">Our technical team will diagnose the issue and determine the best solution.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="text-center warranty-step">
+                        <div class="step-number bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <strong>4</strong>
+                        </div>
+                        <h5>Resolution</h5>
+                        <p class="text-muted">Receive repair, replacement, or refund based on warranty terms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Extended Warranty Options -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-primary">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h4 class="mb-0"><i class="fas fa-plus-circle me-2"></i>Extended Warranty Options</h4>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="extended-warranty-option">
+                                        <h5 class="text-primary">EzCare Plus</h5>
+                                        <p class="text-muted">Extend your warranty by an additional 2 years</p>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success me-2"></i>Extended coverage up to 4 years total</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Accidental damage protection</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Priority customer support</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Free annual device check-up</li>
+                                        </ul>
+                                        <div class="price-tag">
+                                            <span class="h5 text-primary">Starting at $29.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="extended-warranty-option">
+                                        <h5 class="text-warning">EzCare Premium</h5>
+                                        <p class="text-muted">Ultimate protection for your smart home</p>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success me-2"></i>Lifetime warranty coverage</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Complete accidental damage protection</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>24/7 premium support hotline</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Free device upgrades every 3 years</li>
+                                        </ul>
+                                        <div class="price-tag">
+                                            <span class="h5 text-warning">Starting at $99.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button class="btn btn-primary me-3">Purchase Extended Warranty</button>
+                                <a href="contact.html" class="btn btn-outline-secondary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warranty Registration -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-clipboard-list fa-3x text-primary mb-3"></i>
+                                <h4>Register Your Product</h4>
+                                <p class="text-muted">Register your EzHome products to activate warranty coverage and receive important updates.</p>
+                            </div>
+                            
+                            <form id="warranty-registration-form">
+                                <div class="mb-3">
+                                    <label for="product-serial" class="form-label">Product Serial Number</label>
+                                    <input type="text" class="form-control" id="product-serial" placeholder="Enter serial number" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="purchase-date" class="form-label">Purchase Date</label>
+                                    <input type="date" class="form-control" id="purchase-date" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="retailer" class="form-label">Retailer/Store</label>
+                                    <input type="text" class="form-control" id="retailer" placeholder="Where did you purchase this product?" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="customer-email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="customer-email" placeholder="your@email.com" required>
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">Register Product</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Contact -->
+        <section class="text-center">
+            <div class="card border-primary">
+                <div class="card-body p-4">
+                    <h4 class="text-primary mb-3">Need Warranty Support?</h4>
+                    <p class="text-muted mb-4">Our warranty support team is ready to help you with any covered issues.</p>
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-auto">
+                            <div class="support-contact">
+                                <i class="fas fa-phone text-success fa-2x mb-2"></i>
+                                <h6>Phone Support</h6>
+                                <p class="text-muted mb-1">1-800-EZHOME-1</p>
+                                <small class="text-muted">Mon-Fri 8AM-8PM EST</small>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="support-contact">
+                                <i class="fas fa-envelope text-primary fa-2x mb-2"></i>
+                                <h6>Email Support</h6>
+                                <p class="text-muted mb-1">warranty@ezhome.com</p>
+                                <small class="text-muted">24-48 hour response</small>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="support-contact">
+                                <i class="fas fa-comments text-info fa-2x mb-2"></i>
+                                <h6>Live Chat</h6>
+                                <p class="text-muted mb-1">Instant Support</p>
+                                <small class="text-muted">Available 24/7</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">EzHome</h5>
+                    <p class="text-muted">Making homes smarter, safer, and more efficient with cutting-edge IoT technology.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6 class="fw-bold mb-3">Support</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="help.html" class="text-muted text-decoration-none">Help Center</a></li>
+                                <li class="mb-2"><a href="warranty.html" class="text-muted text-decoration-none">Warranty</a></li>
+                                <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="fw-bold mb-3">Company</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                                <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="fw-bold mb-3">Legal</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="privacy-policy.html" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                                <li class="mb-2"><a href="terms-of-service.html" class="text-muted text-decoration-none">Terms of Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0 text-muted">&copy; 2025 EzHome. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="mb-3">
+                            <label for="login-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="login-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="register-form">
+                        <div class="mb-3">
+                            <label for="register-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="register-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="register-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="register-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="register-phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-address" class="form-label">Address</label>
+                            <textarea class="form-control" id="register-address"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="cart-items">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <!-- Footer content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Warranty registration form handling
+        document.getElementById('warranty-registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your product has been registered successfully. You will receive a confirmation email shortly.');
+        });
+    </script>
+</body>
+</html>

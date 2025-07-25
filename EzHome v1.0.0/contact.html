@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzHome - Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">EzHome</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                    <div id="user-auth" class="d-flex">
+                        <a href="#" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    </div>
+                    <div id="cart-icon" class="ms-3">
+                        <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <div class="row align-items-center min-vh-50">
+                    <div class="col-lg-6 order-lg-1 order-2">
+                        <div class="hero-content animate-fade-up">
+                            <h1 class="display-4 fw-bold mb-4">Get in Touch</h1>
+                            <p class="lead text-muted mb-4">
+                                Have questions about our smart home solutions? We're here to help you create the perfect automated living experience.
+                            </p>
+                            <div class="hero-stats d-flex gap-4 flex-wrap">
+                                <div class="stat-item">
+                                    <i class="fas fa-clock text-primary"></i>
+                                    <span class="ms-2">24/7 Support</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users text-primary"></i>
+                                    <span class="ms-2">Expert Team</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-award text-primary"></i>
+                                    <span class="ms-2">Trusted Service</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2 order-1 mb-lg-0 mb-4">
+                        <div class="hero-image animate-fade-up">
+                            <div class="contact-visual">
+                                <i class="fas fa-headset contact-icon"></i>
+                                <div class="floating-elements">
+                                    <div class="floating-element element-1">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="floating-element element-2">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="floating-element element-3">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="contact-info py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="section-header text-center mb-5">
+                            <h2 class="section-title">Contact Information</h2>
+                            <p class="section-subtitle">Multiple ways to reach our team</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Company Info Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="contact-card h-100 animate-fade-up" data-delay="0.1">
+                            <div class="contact-icon-wrapper">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h4>Company</h4>
+                            <p><strong>EzHome Trading Pte Ltd</strong></p>
+                            <p class="text-muted">Your trusted smart home partner in Singapore</p>
+                        </div>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="contact-card h-100 animate-fade-up" data-delay="0.2">
+                            <div class="contact-icon-wrapper">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h4>Address</h4>
+                            <p><strong>27 Trade Hub Boulevard</strong><br>
+                            #04-144, Singapore 520027</p>
+                            <a href="https://maps.google.com/?q=27+Trade+Hub+Boulevard+Singapore" target="_blank" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-directions me-1"></i>Get Directions
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="contact-card h-100 animate-fade-up" data-delay="0.3">
+                            <div class="contact-icon-wrapper">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4>Phone</h4>
+                            <p><strong>Main:</strong> <a href="tel:+6568882727">+65 6888 2727</a><br>
+                            <strong>Customer Service:</strong> <a href="tel:+6568882700">+65 6888 2700</a></p>
+                            <p class="text-muted small">Available during business hours</p>
+                        </div>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="contact-card h-100 animate-fade-up" data-delay="0.4">
+                            <div class="contact-icon-wrapper">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@ezhome.com.sg">info@ezhome.com.sg</a></p>
+                            <p class="text-muted">We'll respond within 24 hours</p>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="contact-card h-100 animate-fade-up" data-delay="0.5">
+                            <div class="contact-icon-wrapper">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>Business Hours</h4>
+                            <p><strong>Consultancy Appointments:</strong><br>
+                            Monday to Friday<br>
+                            9:00 AM – 6:00 PM</p>
+                        </div>
+                    </div>
+
+                    <!-- Consultation Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="contact-card h-100 animate-fade-up" data-delay="0.6">
+                            <div class="contact-icon-wrapper">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h4>Book Consultation</h4>
+                            <p>Schedule a personalized consultation for your smart home needs</p>
+                            <a href="http://www.ezhome.com.sg/consultation" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-calendar me-1"></i>Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="section-header text-center mb-5">
+                            <h2 class="section-title">Find Us</h2>
+                            <p class="section-subtitle">Visit our showroom in Singapore</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="map-container animate-fade-up">
+                            <img src="images/static_map.png" alt="EzHome Location Map" class="img-fluid rounded-3 shadow-lg">
+                            <div class="map-overlay">
+                                <div class="map-info">
+                                    <h5><i class="fas fa-map-marker-alt me-2"></i>EzHome Trading Pte Ltd</h5>
+                                    <p>27 Trade Hub Boulevard, #04-144<br>Singapore 520027</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="section-header text-center mb-5">
+                            <h2 class="section-title">Send us a Message</h2>
+                            <p class="section-subtitle">We'd love to hear from you</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="contact-form-card animate-fade-up">
+                            <form class="contact-form">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                                            <label for="firstName">First Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                                            <label for="lastName">Last Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                                            <label for="email">Email Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="tel" class="form-control" id="phone" placeholder="Phone Number">
+                                            <label for="phone">Phone Number (Optional)</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <select class="form-select" id="subject" required>
+                                                <option value="">Choose a subject</option>
+                                                <option value="general">General Inquiry</option>
+                                                <option value="consultation">Consultation Request</option>
+                                                <option value="support">Technical Support</option>
+                                                <option value="partnership">Partnership</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                            <label for="subject">Subject</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="message" placeholder="Your Message" style="height: 120px" required></textarea>
+                                            <label for="message">Your Message</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">EzHome</h5>
+                    <p class="text-muted">Making homes smarter, safer, and more efficient with cutting-edge IoT technology and intelligent automation solutions.</p>
+                    
+                    <div class="app-download mb-3">
+                        <p class="text-muted mb-2">Also available on:</p>
+                        <div class="app-stores">
+                            <a href="#" class="text-decoration-none me-3">
+                                <div class="d-flex align-items-center app-store-btn">
+                                    <i class="fab fa-google-play text-success me-2"></i>
+                                    <span class="text-muted">Google Play Store</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Admin and Staffs</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="admin.html" class="text-muted text-decoration-none">Admin Panel</a></li>
+                        <li class="mb-2"><a href="orders.html" class="text-muted text-decoration-none">Order Management</a></li>
+                        <li class="mb-2"><a href="product-management.html" class="text-muted text-decoration-none">Product Management</a></li>
+                        <li class="mb-2"><a href="staff.html" class="text-muted text-decoration-none">Staff Portal</a></li>
+                        <li class="mb-2"><a href="profile.html" class="text-muted text-decoration-none">Staff Profile</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="help.html" class="text-muted text-decoration-none">Help Center</a></li>
+                        <li class="mb-2"><a href="installation-guide.html" class="text-muted text-decoration-none">Installation Guide</a></li>
+                        <li class="mb-2"><a href="warranty.html" class="text-muted text-decoration-none">Warranty</a></li>
+                        <li class="mb-2"><a href="returns.html" class="text-muted text-decoration-none">Returns</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="our-team.html" class="text-muted text-decoration-none">Our Team</a></li>
+                        <li class="mb-2"><a href="careers.html" class="text-muted text-decoration-none">Careers</a></li>
+                        <li class="mb-2"><a href="press.html" class="text-muted text-decoration-none">Press</a></li>
+                        <li class="mb-2"><a href="investors.html" class="text-muted text-decoration-none">Investors</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="privacy-policy.html" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms-of-service.html" class="text-muted text-decoration-none">Terms of Service</a></li>
+                        <li class="mb-2"><a href="cookie-policy.html" class="text-muted text-decoration-none">Cookie Policy</a></li>
+                        <li class="mb-2"><a href="gdpr.html" class="text-muted text-decoration-none">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">&copy; 2025 EzHome. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="payment-methods">
+                        <span class="text-muted me-3">We Accept:</span>
+                        <i class="fab fa-cc-visa text-muted me-2"></i>
+                        <i class="fab fa-cc-mastercard text-muted me-2"></i>
+                        <i class="fab fa-cc-paypal text-muted me-2"></i>
+                        <i class="fab fa-cc-apple-pay text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="mb-3">
+                            <label for="login-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="login-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="register-form">
+                        <div class="mb-3">
+                            <label for="register-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="register-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="register-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="register-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="register-phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-address" class="form-label">Address</label>
+                            <textarea class="form-control" id="register-address"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="cart-items">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <!-- Footer content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - EzHome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">EzHome</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                    <div id="user-auth" class="d-flex">
+                        <a href="#" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    </div>
+                    <div id="cart-icon" class="ms-3">
+                        <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="about.html">About</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Careers</li>
+            </ol>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h1 class="display-4 fw-bold text-primary mb-3">
+                    <i class="fas fa-briefcase me-3"></i>Join Our Team
+                </h1>
+                <p class="lead text-muted">Build the future of smart homes with passionate professionals who share your vision</p>
+            </div>
+        </div>
+
+        <!-- Why Work With Us -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="text-primary mb-3 text-center">Why Choose EzHome?</h3>
+                            <p class="lead text-center">Join a team that's revolutionizing how people interact with their homes. At EzHome, you'll work on cutting-edge IoT technology while enjoying a culture of innovation, collaboration, and growth.</p>
+                            
+                            <div class="row g-4 mt-3">
+                                <div class="col-md-6">
+                                    <div class="benefit-item">
+                                        <i class="fas fa-rocket text-primary fa-2x mb-3"></i>
+                                        <h5>Innovation-Driven</h5>
+                                        <p class="text-muted">Work on breakthrough technologies that shape the future of smart homes and IoT.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="benefit-item">
+                                        <i class="fas fa-users text-success fa-2x mb-3"></i>
+                                        <h5>Collaborative Culture</h5>
+                                        <p class="text-muted">Join a diverse team of experts from top tech companies who value teamwork and knowledge sharing.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="benefit-item">
+                                        <i class="fas fa-chart-line text-info fa-2x mb-3"></i>
+                                        <h5>Growth Opportunities</h5>
+                                        <p class="text-muted">Advance your career with mentorship programs, skill development, and leadership opportunities.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="benefit-item">
+                                        <i class="fas fa-balance-scale text-warning fa-2x mb-3"></i>
+                                        <h5>Work-Life Balance</h5>
+                                        <p class="text-muted">Flexible schedules, remote work options, and a supportive environment that values your well-being.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open Positions -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4">Open Positions</h2>
+            
+            <!-- Engineering Positions -->
+            <div class="mb-4">
+                <h4 class="text-primary mb-3"><i class="fas fa-cogs me-2"></i>Engineering</h4>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="job-card card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="text-primary">Senior IoT Engineer</h5>
+                                    <span class="badge bg-primary">Full-time</span>
+                                </div>
+                                <p class="text-muted mb-3">Lead the development of next-generation smart home devices with focus on connectivity, security, and user experience.</p>
+                                <div class="job-details">
+                                    <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i>San Francisco, CA (Hybrid)</p>
+                                    <p class="mb-2"><i class="fas fa-dollar-sign text-muted me-2"></i>$120k - $160k</p>
+                                    <p class="mb-3"><i class="fas fa-calendar text-muted me-2"></i>Posted 3 days ago</p>
+                                </div>
+                                <div class="job-skills mb-3">
+                                    <span class="badge bg-light text-dark me-1">C++</span>
+                                    <span class="badge bg-light text-dark me-1">Python</span>
+                                    <span class="badge bg-light text-dark me-1">IoT</span>
+                                    <span class="badge bg-light text-dark me-1">AWS</span>
+                                </div>
+                                <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#applyModal" data-position="Senior IoT Engineer">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="job-card card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="text-primary">Mobile App Developer</h5>
+                                    <span class="badge bg-primary">Full-time</span>
+                                </div>
+                                <p class="text-muted mb-3">Build intuitive mobile applications for iOS and Android that control and monitor smart home devices.</p>
+                                <div class="job-details">
+                                    <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i>Remote / San Francisco, CA</p>
+                                    <p class="mb-2"><i class="fas fa-dollar-sign text-muted me-2"></i>$100k - $140k</p>
+                                    <p class="mb-3"><i class="fas fa-calendar text-muted me-2"></i>Posted 1 week ago</p>
+                                </div>
+                                <div class="job-skills mb-3">
+                                    <span class="badge bg-light text-dark me-1">React Native</span>
+                                    <span class="badge bg-light text-dark me-1">Swift</span>
+                                    <span class="badge bg-light text-dark me-1">Kotlin</span>
+                                    <span class="badge bg-light text-dark me-1">Firebase</span>
+                                </div>
+                                <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#applyModal" data-position="Mobile App Developer">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Positions -->
+            <div class="mb-4">
+                <h4 class="text-warning mb-3"><i class="fas fa-palette me-2"></i>Design</h4>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="job-card card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="text-warning">UX/UI Designer</h5>
+                                    <span class="badge bg-warning text-dark">Full-time</span>
+                                </div>
+                                <p class="text-muted mb-3">Design beautiful and intuitive user experiences for our smart home ecosystem across mobile, web, and device interfaces.</p>
+                                <div class="job-details">
+                                    <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i>San Francisco, CA</p>
+                                    <p class="mb-2"><i class="fas fa-dollar-sign text-muted me-2"></i>$90k - $125k</p>
+                                    <p class="mb-3"><i class="fas fa-calendar text-muted me-2"></i>Posted 5 days ago</p>
+                                </div>
+                                <div class="job-skills mb-3">
+                                    <span class="badge bg-light text-dark me-1">Figma</span>
+                                    <span class="badge bg-light text-dark me-1">Sketch</span>
+                                    <span class="badge bg-light text-dark me-1">Prototyping</span>
+                                    <span class="badge bg-light text-dark me-1">User Research</span>
+                                </div>
+                                <button class="btn btn-outline-warning w-100" data-bs-toggle="modal" data-bs-target="#applyModal" data-position="UX/UI Designer">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="job-card card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="text-warning">Industrial Designer</h5>
+                                    <span class="badge bg-warning text-dark">Full-time</span>
+                                </div>
+                                <p class="text-muted mb-3">Create elegant physical designs for our smart home devices that blend seamlessly with modern home aesthetics.</p>
+                                <div class="job-details">
+                                    <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i>San Francisco, CA</p>
+                                    <p class="mb-2"><i class="fas fa-dollar-sign text-muted me-2"></i>$85k - $115k</p>
+                                    <p class="mb-3"><i class="fas fa-calendar text-muted me-2"></i>Posted 2 weeks ago</p>
+                                </div>
+                                <div class="job-skills mb-3">
+                                    <span class="badge bg-light text-dark me-1">SolidWorks</span>
+                                    <span class="badge bg-light text-dark me-1">Rhino</span>
+                                    <span class="badge bg-light text-dark me-1">3D Printing</span>
+                                    <span class="badge bg-light text-dark me-1">CAD</span>
+                                </div>
+                                <button class="btn btn-outline-warning w-100" data-bs-toggle="modal" data-bs-target="#applyModal" data-position="Industrial Designer">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product & Business Positions -->
+            <div class="mb-4">
+                <h4 class="text-success mb-3"><i class="fas fa-chart-bar me-2"></i>Product & Business</h4>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="job-card card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="text-success">Product Manager</h5>
+                                    <span class="badge bg-success">Full-time</span>
+                                </div>
+                                <p class="text-muted mb-3">Drive product strategy and roadmap for our smart home ecosystem, working closely with engineering and design teams.</p>
+                                <div class="job-details">
+                                    <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i>San Francisco, CA</p>
+                                    <p class="mb-2"><i class="fas fa-dollar-sign text-muted me-2"></i>$110k - $150k</p>
+                                    <p class="mb-3"><i class="fas fa-calendar text-muted me-2"></i>Posted 4 days ago</p>
+                                </div>
+                                <div class="job-skills mb-3">
+                                    <span class="badge bg-light text-dark me-1">Product Strategy</span>
+                                    <span class="badge bg-light text-dark me-1">Analytics</span>
+                                    <span class="badge bg-light text-dark me-1">Agile</span>
+                                    <span class="badge bg-light text-dark me-1">IoT</span>
+                                </div>
+                                <button class="btn btn-outline-success w-100" data-bs-toggle="modal" data-bs-target="#applyModal" data-position="Product Manager">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="job-card card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="text-success">Marketing Coordinator</h5>
+                                    <span class="badge bg-success">Full-time</span>
+                                </div>
+                                <p class="text-muted mb-3">Support marketing campaigns, content creation, and brand initiatives to grow EzHome's market presence.</p>
+                                <div class="job-details">
+                                    <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i>San Francisco, CA (Hybrid)</p>
+                                    <p class="mb-2"><i class="fas fa-dollar-sign text-muted me-2"></i>$55k - $75k</p>
+                                    <p class="mb-3"><i class="fas fa-calendar text-muted me-2"></i>Posted 1 week ago</p>
+                                </div>
+                                <div class="job-skills mb-3">
+                                    <span class="badge bg-light text-dark me-1">Content Marketing</span>
+                                    <span class="badge bg-light text-dark me-1">Social Media</span>
+                                    <span class="badge bg-light text-dark me-1">Analytics</span>
+                                    <span class="badge bg-light text-dark me-1">SEO</span>
+                                </div>
+                                <button class="btn btn-outline-success w-100" data-bs-toggle="modal" data-bs-target="#applyModal" data-position="Marketing Coordinator">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Success Positions -->
+            <div class="mb-4">
+                <h4 class="text-info mb-3"><i class="fas fa-headset me-2"></i>Customer Success</h4>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="job-card card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="text-info">Customer Success Specialist</h5>
+                                    <span class="badge bg-info">Full-time</span>
+                                </div>
+                                <p class="text-muted mb-3">Provide exceptional customer support and technical assistance to EzHome users via phone, email, and chat.</p>
+                                <div class="job-details">
+                                    <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i>Remote / Austin, TX</p>
+                                    <p class="mb-2"><i class="fas fa-dollar-sign text-muted me-2"></i>$45k - $60k</p>
+                                    <p class="mb-3"><i class="fas fa-calendar text-muted me-2"></i>Posted 6 days ago</p>
+                                </div>
+                                <div class="job-skills mb-3">
+                                    <span class="badge bg-light text-dark me-1">Customer Service</span>
+                                    <span class="badge bg-light text-dark me-1">Technical Support</span>
+                                    <span class="badge bg-light text-dark me-1">CRM</span>
+                                    <span class="badge bg-light text-dark me-1">Communication</span>
+                                </div>
+                                <button class="btn btn-outline-info w-100" data-bs-toggle="modal" data-bs-target="#applyModal" data-position="Customer Success Specialist">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="job-card card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="text-info">Installation Technician</h5>
+                                    <span class="badge bg-info">Full-time</span>
+                                </div>
+                                <p class="text-muted mb-3">Provide on-site installation and setup services for customers purchasing EzHome premium packages.</p>
+                                <div class="job-details">
+                                    <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i>San Francisco Bay Area</p>
+                                    <p class="mb-2"><i class="fas fa-dollar-sign text-muted me-2"></i>$50k - $70k + Benefits</p>
+                                    <p class="mb-3"><i class="fas fa-calendar text-muted me-2"></i>Posted 1 week ago</p>
+                                </div>
+                                <div class="job-skills mb-3">
+                                    <span class="badge bg-light text-dark me-1">Electrical</span>
+                                    <span class="badge bg-light text-dark me-1">Smart Home</span>
+                                    <span class="badge bg-light text-dark me-1">Customer Service</span>
+                                    <span class="badge bg-light text-dark me-1">Networking</span>
+                                </div>
+                                <button class="btn btn-outline-info w-100" data-bs-toggle="modal" data-bs-target="#applyModal" data-position="Installation Technician">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits & Perks -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h3 class="text-center mb-4">Benefits & Perks</h3>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="benefit-card text-center p-3">
+                                <i class="fas fa-heartbeat text-danger fa-3x mb-3"></i>
+                                <h6>Health & Wellness</h6>
+                                <ul class="list-unstyled small text-muted">
+                                    <li>100% health insurance coverage</li>
+                                    <li>Dental & vision insurance</li>
+                                    <li>Mental health support</li>
+                                    <li>Gym membership reimbursement</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="benefit-card text-center p-3">
+                                <i class="fas fa-piggy-bank text-success fa-3x mb-3"></i>
+                                <h6>Financial Benefits</h6>
+                                <ul class="list-unstyled small text-muted">
+                                    <li>Competitive salary + equity</li>
+                                    <li>401(k) with company match</li>
+                                    <li>Performance bonuses</li>
+                                    <li>Stock options</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="benefit-card text-center p-3">
+                                <i class="fas fa-calendar-alt text-primary fa-3x mb-3"></i>
+                                <h6>Time Off</h6>
+                                <ul class="list-unstyled small text-muted">
+                                    <li>Unlimited PTO policy</li>
+                                    <li>11 company holidays</li>
+                                    <li>Sabbatical program</li>
+                                    <li>Parental leave</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="benefit-card text-center p-3">
+                                <i class="fas fa-graduation-cap text-warning fa-3x mb-3"></i>
+                                <h6>Growth & Learning</h6>
+                                <ul class="list-unstyled small text-muted">
+                                    <li>$2,000 learning budget</li>
+                                    <li>Conference attendance</li>
+                                    <li>Mentorship programs</li>
+                                    <li>Internal training</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Process -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="text-center mb-4">Our Hiring Process</h3>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="text-center process-step">
+                                <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                    <strong>1</strong>
+                                </div>
+                                <h6>Application</h6>
+                                <p class="small text-muted">Submit your application and resume through our career portal.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="text-center process-step">
+                                <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                    <strong>2</strong>
+                                </div>
+                                <h6>Phone Screen</h6>
+                                <p class="small text-muted">Initial conversation with our talent team to discuss your background and interests.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="text-center process-step">
+                                <div class="step-number bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                    <strong>3</strong>
+                                </div>
+                                <h6>Technical Interview</h6>
+                                <p class="small text-muted">Role-specific interview with team members to assess technical skills and fit.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="text-center process-step">
+                                <div class="step-number bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                    <strong>4</strong>
+                                </div>
+                                <h6>Final Interview</h6>
+                                <p class="small text-muted">Meet with leadership team and receive an offer decision within 48 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Not Seeing Right Role -->
+        <section class="text-center">
+            <div class="card border-secondary">
+                <div class="card-body p-4">
+                    <i class="fas fa-search fa-3x text-secondary mb-3"></i>
+                    <h4 class="text-secondary mb-3">Don't See the Right Role?</h4>
+                    <p class="text-muted mb-4">We're always looking for talented individuals to join our team. Send us your resume and we'll keep you in mind for future opportunities.</p>
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-auto">
+                            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#generalApplicationModal">
+                                <i class="fas fa-paper-plane me-2"></i>Submit General Application
+                            </button>
+                        </div>
+                        <div class="col-auto">
+                            <a href="contact.html" class="btn btn-outline-secondary">
+                                <i class="fas fa-envelope me-2"></i>Contact HR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Application Modal -->
+    <div class="modal fade" id="applyModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Apply for Position</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="application-form">
+                        <div class="mb-3">
+                            <label for="position-applying" class="form-label">Position</label>
+                            <input type="text" class="form-control" id="position-applying" readonly>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="first-name" class="form-label">First Name *</label>
+                                <input type="text" class="form-control" id="first-name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="last-name" class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" id="last-name" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="resume" class="form-label">Resume/CV *</label>
+                            <input type="file" class="form-control" id="resume" accept=".pdf,.doc,.docx" required>
+                            <div class="form-text">Accepted formats: PDF, DOC, DOCX (max 5MB)</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cover-letter" class="form-label">Cover Letter</label>
+                            <textarea class="form-control" id="cover-letter" rows="4" placeholder="Tell us why you're interested in this position and what you'd bring to our team..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="linkedin-profile" class="form-label">LinkedIn Profile</label>
+                            <input type="url" class="form-control" id="linkedin-profile" placeholder="https://linkedin.com/in/yourprofile">
+                        </div>
+                        <div class="mb-3">
+                            <label for="start-date" class="form-label">Earliest Start Date</label>
+                            <input type="date" class="form-control" id="start-date">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="privacy-consent" required>
+                                <label class="form-check-label" for="privacy-consent">
+                                    I consent to EzHome storing and processing my personal data for recruitment purposes
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="application-form" class="btn btn-primary">Submit Application</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- General Application Modal -->
+    <div class="modal fade" id="generalApplicationModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">General Application</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="general-application-form">
+                        <div class="mb-3">
+                            <label for="general-name" class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" id="general-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="general-email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="general-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="areas-of-interest" class="form-label">Areas of Interest</label>
+                            <select class="form-select" id="areas-of-interest" multiple>
+                                <option value="engineering">Engineering</option>
+                                <option value="design">Design</option>
+                                <option value="product">Product Management</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="sales">Sales</option>
+                                <option value="customer-success">Customer Success</option>
+                                <option value="operations">Operations</option>
+                            </select>
+                            <div class="form-text">Hold Ctrl/Cmd to select multiple areas</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="general-resume" class="form-label">Resume/CV *</label>
+                            <input type="file" class="form-control" id="general-resume" accept=".pdf,.doc,.docx" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="general-message" class="form-label">Message</label>
+                            <textarea class="form-control" id="general-message" rows="4" placeholder="Tell us about your background and what type of role you're looking for..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="general-application-form" class="btn btn-primary">Submit Application</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">EzHome</h5>
+                    <p class="text-muted">Making homes smarter, safer, and more efficient with cutting-edge IoT technology.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6 class="fw-bold mb-3">Company</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                                <li class="mb-2"><a href="our-team.html" class="text-muted text-decoration-none">Our Team</a></li>
+                                <li class="mb-2"><a href="careers.html" class="text-muted text-decoration-none">Careers</a></li>
+                                <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="fw-bold mb-3">Support</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="help.html" class="text-muted text-decoration-none">Help Center</a></li>
+                                <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="fw-bold mb-3">Legal</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="privacy-policy.html" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                                <li class="mb-2"><a href="terms-of-service.html" class="text-muted text-decoration-none">Terms of Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0 text-muted">&copy; 2025 EzHome. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="mb-3">
+                            <label for="login-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="login-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="register-form">
+                        <div class="mb-3">
+                            <label for="register-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="register-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="register-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="register-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="register-phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-address" class="form-label">Address</label>
+                            <textarea class="form-control" id="register-address"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="cart-items">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <!-- Footer content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Handle application modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const applyButtons = document.querySelectorAll('[data-bs-target="#applyModal"]');
+            const positionInput = document.getElementById('position-applying');
+            
+            applyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const position = this.getAttribute('data-position');
+                    positionInput.value = position;
+                });
+            });
+            
+            // Handle application form submission
+            document.getElementById('application-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your application! We will review it and get back to you within 1-2 business days.');
+                bootstrap.Modal.getInstance(document.getElementById('applyModal')).hide();
+            });
+            
+            // Handle general application form submission
+            document.getElementById('general-application-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your interest in EzHome! We will keep your information on file and contact you when suitable positions become available.');
+                bootstrap.Modal.getInstance(document.getElementById('generalApplicationModal')).hide();
+            });
+        });
+    </script>
+</body>
+</html>
