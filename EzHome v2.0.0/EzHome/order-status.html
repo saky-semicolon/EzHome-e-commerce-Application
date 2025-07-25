@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzHome - Order Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">EzHome</a>
+                <div class="d-flex">
+                    <a href="index.html" class="btn btn-outline-primary">Continue Shopping</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Order Confirmation Header -->
+                <div class="text-center mb-5">
+                    <div class="success-icon mb-3">
+                        <i class="fas fa-check-circle fa-4x text-success"></i>
+                    </div>
+                    <h1 class="text-success mb-2">Order Confirmed!</h1>
+                    <p class="lead text-muted">Thank you for your purchase. Your order has been successfully placed.</p>
+                </div>
+
+                <!-- Order Status Card -->
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-shopping-bag me-2"></i>
+                            Order Details
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="order-info">
+                            <!-- Order information will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Items -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-list me-2"></i>
+                            Items Ordered
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="order-items">
+                            <!-- Order items will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Totals -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-calculator me-2"></i>
+                            Order Summary
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="order-totals">
+                            <!-- Order totals will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping Information -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-truck me-2"></i>
+                            Shipping Information
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="shipping-info">
+                            <!-- Shipping information will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Timeline -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-clock me-2"></i>
+                            Order Timeline
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline">
+                            <div class="timeline-item active">
+                                <div class="timeline-marker bg-success">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6>Order Placed</h6>
+                                    <p class="text-muted mb-0" id="order-placed-time"><!-- Will be populated --></p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker bg-secondary">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6>Preparing for Shipment</h6>
+                                    <p class="text-muted mb-0">1-2 business days</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker bg-secondary">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6>Shipped</h6>
+                                    <p class="text-muted mb-0">3-5 business days</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker bg-secondary">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6>Delivered</h6>
+                                    <p class="text-muted mb-0">5-7 business days total</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Steps -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-info-circle me-2"></i>
+                            What's Next?
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start mb-3">
+                                    <i class="fas fa-envelope fa-2x text-primary me-3 mt-1"></i>
+                                    <div>
+                                        <h6>Confirmation Email</h6>
+                                        <p class="text-muted mb-0">You'll receive an email confirmation shortly with your order details and tracking information.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start mb-3">
+                                    <i class="fas fa-shipping-fast fa-2x text-primary me-3 mt-1"></i>
+                                    <div>
+                                        <h6>Shipping Updates</h6>
+                                        <p class="text-muted mb-0">We'll send you tracking updates as your order makes its way to you.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center mb-5">
+                    <a href="index.html" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-home me-1"></i> Continue Shopping
+                    </a>
+                    <button class="btn btn-outline-secondary btn-lg" onclick="window.print()">
+                        <i class="fas fa-print me-1"></i> Print Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">EzHome</h5>
+                    <p class="text-muted">Making homes smarter, safer, and more efficient with cutting-edge IoT technology.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Support</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="help.html" class="text-muted text-decoration-none">Help Center</a></li>
+                                <li class="mb-2"><a href="installation-guide.html" class="text-muted text-decoration-none">Installation Guide</a></li>
+                                <li class="mb-2"><a href="warranty.html" class="text-muted text-decoration-none">Warranty</a></li>
+                                <li class="mb-2"><a href="returns.html" class="text-muted text-decoration-none">Returns</a></li>
+                                <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Company</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                                <li class="mb-2"><a href="our-team.html" class="text-muted text-decoration-none">Our Team</a></li>
+                                <li class="mb-2"><a href="careers.html" class="text-muted text-decoration-none">Careers</a></li>
+                                <li class="mb-2"><a href="press.html" class="text-muted text-decoration-none">Press</a></li>
+                                <li class="mb-2"><a href="investors.html" class="text-muted text-decoration-none">Investors</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Legal</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="privacy-policy.html" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                                <li class="mb-2"><a href="terms-of-service.html" class="text-muted text-decoration-none">Terms of Service</a></li>
+                                <li class="mb-2"><a href="cookie-policy.html" class="text-muted text-decoration-none">Cookie Policy</a></li>
+                                <li class="mb-2"><a href="gdpr.html" class="text-muted text-decoration-none">GDPR</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Contact</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                                <li class="mb-2"><span class="text-muted">1-800-EZHOME-1</span></li>
+                                <li class="mb-2"><span class="text-muted">support@ezhome.com</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0 text-muted">&copy; 2025 EzHome. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/order-status.js"></script>
+</body>
+</html>
