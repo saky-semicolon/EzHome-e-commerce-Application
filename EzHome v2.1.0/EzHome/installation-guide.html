@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Guide - EzHome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">EzHome</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                    <!-- <div id="user-auth" class="d-flex">
+                        <a href="#" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    </div>
+                    <div id="cart-icon" class="ms-3">
+                        <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="help.html">Help</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Installation Guide</li>
+            </ol>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h1 class="display-4 fw-bold text-primary mb-3">
+                    <i class="fas fa-tools me-3"></i>Installation Guide
+                </h1>
+                <p class="lead text-muted">Step-by-step instructions to set up your EzHome smart devices</p>
+            </div>
+        </div>
+
+        <!-- Installation Overview -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="text-primary mb-3">Before You Begin</h3>
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Note:</strong> Ensure you have a stable Wi-Fi connection and the EzHome mobile app installed before starting the installation process.
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Download the EzHome app from Google Play Store</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Create your EzHome account</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Ensure your Wi-Fi network is 2.4GHz compatible</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Have your Wi-Fi password ready</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Steps -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4">Installation Steps by Device</h2>
+            
+            <!-- Echo Hub Installation -->
+            <div class="accordion mb-4" id="installationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="echoHubHeading">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#echoHubCollapse" aria-expanded="true" aria-controls="echoHubCollapse">
+                            <i class="fas fa-home text-primary me-3"></i>
+                            <strong>Echo Hub (Essential & Standard)</strong>
+                        </button>
+                    </h2>
+                    <div id="echoHubCollapse" class="accordion-collapse collapse show" aria-labelledby="echoHubHeading" data-bs-parent="#installationAccordion">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <ol class="installation-steps">
+                                        <li class="mb-3">
+                                            <strong>Unpack the Echo Hub</strong>
+                                            <p class="text-muted">Remove the Echo Hub from its packaging and locate the power adapter.</p>
+                                        </li>
+                                        <li class="mb-3">
+                                            <strong>Connect to Power</strong>
+                                            <p class="text-muted">Plug the power adapter into the Echo Hub and connect to a wall outlet. The LED will turn blue when powering on.</p>
+                                        </li>
+                                        <li class="mb-3">
+                                            <strong>Open EzHome App</strong>
+                                            <p class="text-muted">Launch the EzHome app and tap "Add Device" then select "Echo Hub".</p>
+                                        </li>
+                                        <li class="mb-3">
+                                            <strong>Follow Setup Wizard</strong>
+                                            <p class="text-muted">The app will guide you through Wi-Fi connection and voice training.</p>
+                                        </li>
+                                        <li class="mb-3">
+                                            <strong>Test Voice Commands</strong>
+                                            <p class="text-muted">Try saying "Hey EzHome, what's the weather?" to confirm setup is complete.</p>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="installation-tips bg-light p-3 rounded">
+                                        <h6 class="text-primary"><i class="fas fa-lightbulb me-2"></i>Tips</h6>
+                                        <ul class="small text-muted mb-0">
+                                            <li>Place hub centrally in your home</li>
+                                            <li>Keep away from other electronics</li>
+                                            <li>Ensure clear line of sight</li>
+                                            <li>Setup takes about 5-10 minutes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart LED Bulbs -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="ledBulbsHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ledBulbsCollapse" aria-expanded="false" aria-controls="ledBulbsCollapse">
+                            <i class="fas fa-lightbulb text-warning me-3"></i>
+                            <strong>Smart LED Bulbs</strong>
+                        </button>
+                    </h2>
+                    <div id="ledBulbsCollapse" class="accordion-collapse collapse" aria-labelledby="ledBulbsHeading" data-bs-parent="#installationAccordion">
+                        <div class="accordion-body">
+                            <ol class="installation-steps">
+                                <li class="mb-3">
+                                    <strong>Install Bulbs</strong>
+                                    <p class="text-muted">Screw the smart LED bulbs into your existing light fixtures. Ensure power is off before installation.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Turn On Power</strong>
+                                    <p class="text-muted">Switch on the light fixture. The bulb will flash briefly to indicate it's ready for pairing.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Add to App</strong>
+                                    <p class="text-muted">In the EzHome app, tap "Add Device" → "Lighting" → "Smart LED Bulb".</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Scan for Devices</strong>
+                                    <p class="text-muted">The app will automatically detect nearby bulbs. Select your bulb from the list.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Name Your Bulb</strong>
+                                    <p class="text-muted">Give your bulb a memorable name like "Living Room Lamp" or "Bedroom Light".</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Thermostat -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="thermostatHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#thermostatCollapse" aria-expanded="false" aria-controls="thermostatCollapse">
+                            <i class="fas fa-thermometer-half text-danger me-3"></i>
+                            <strong>Smart Thermostat Pro</strong>
+                        </button>
+                    </h2>
+                    <div id="thermostatCollapse" class="accordion-collapse collapse" aria-labelledby="thermostatHeading" data-bs-parent="#installationAccordion">
+                        <div class="accordion-body">
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <strong>Professional Installation Recommended:</strong> This device involves electrical wiring. Consider hiring a certified electrician for installation.
+                            </div>
+                            <ol class="installation-steps">
+                                <li class="mb-3">
+                                    <strong>Turn Off Power</strong>
+                                    <p class="text-muted">Switch off power to your HVAC system at the circuit breaker.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Remove Old Thermostat</strong>
+                                    <p class="text-muted">Carefully disconnect wires from your existing thermostat and label them.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Install Base Plate</strong>
+                                    <p class="text-muted">Mount the new thermostat base plate to the wall using provided screws.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Connect Wires</strong>
+                                    <p class="text-muted">Connect labeled wires to corresponding terminals on the new thermostat.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Attach Thermostat</strong>
+                                    <p class="text-muted">Snap the thermostat display onto the base plate and restore power.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>App Setup</strong>
+                                    <p class="text-muted">Add the thermostat to your EzHome app and configure heating/cooling preferences.</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Camera -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="cameraHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cameraCollapse" aria-expanded="false" aria-controls="cameraCollapse">
+                            <i class="fas fa-video text-info me-3"></i>
+                            <strong>Smart Security Camera</strong>
+                        </button>
+                    </h2>
+                    <div id="cameraCollapse" class="accordion-collapse collapse" aria-labelledby="cameraHeading" data-bs-parent="#installationAccordion">
+                        <div class="accordion-body">
+                            <ol class="installation-steps">
+                                <li class="mb-3">
+                                    <strong>Choose Location</strong>
+                                    <p class="text-muted">Select a location with good Wi-Fi signal and clear view of the area you want to monitor.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Mount Camera</strong>
+                                    <p class="text-muted">Use the provided mounting bracket to secure the camera to wall or ceiling.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Connect Power</strong>
+                                    <p class="text-muted">Plug in the power adapter or connect to existing wiring if hardwired model.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Download EzHome App</strong>
+                                    <p class="text-muted">Install the EzHome app and create an account if you haven't already.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Scan QR Code</strong>
+                                    <p class="text-muted">Use the app to scan the QR code on the camera for quick setup.</p>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Configure Settings</strong>
+                                    <p class="text-muted">Set up motion detection zones, recording preferences, and notification settings.</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-primary mb-4">Common Issues & Solutions</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="text-danger"><i class="fas fa-wifi me-2"></i>Wi-Fi Connection Issues</h5>
+                                    <ul class="text-muted">
+                                        <li>Ensure your network is 2.4GHz</li>
+                                        <li>Check Wi-Fi password is correct</li>
+                                        <li>Move device closer to router</li>
+                                        <li>Restart your router</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="text-warning"><i class="fas fa-mobile-alt me-2"></i>App Not Detecting Device</h5>
+                                    <ul class="text-muted">
+                                        <li>Enable Bluetooth on your phone</li>
+                                        <li>Grant location permissions to app</li>
+                                        <li>Reset device to factory settings</li>
+                                        <li>Update the EzHome app</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="text-info"><i class="fas fa-microphone me-2"></i>Voice Commands Not Working</h5>
+                                    <ul class="text-muted">
+                                        <li>Check microphone isn't muted</li>
+                                        <li>Retrain voice recognition</li>
+                                        <li>Reduce background noise</li>
+                                        <li>Update device firmware</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="text-success"><i class="fas fa-power-off me-2"></i>Device Won't Turn On</h5>
+                                    <ul class="text-muted">
+                                        <li>Check power connections</li>
+                                        <li>Verify outlet is working</li>
+                                        <li>Try different power adapter</li>
+                                        <li>Contact customer support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Contact -->
+        <section class="text-center">
+            <div class="card border-primary">
+                <div class="card-body p-4">
+                    <h4 class="text-primary mb-3">Need Additional Help?</h4>
+                    <p class="text-muted mb-4">Our technical support team is here to help you with any installation issues.</p>
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-auto">
+                            <a href="contact.html" class="btn btn-primary">
+                                <i class="fas fa-envelope me-2"></i>Contact Support
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="help.html" class="btn btn-outline-secondary">
+                                <i class="fas fa-question-circle me-2"></i>Help Center
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#liveChatModal">
+                                <i class="fas fa-comments me-2"></i>Live Chat
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">EzHome</h5>
+                    <p class="text-muted">Making homes smarter, safer, and more efficient with cutting-edge IoT technology and intelligent automation solutions.</p>
+                    
+                    <div class="app-download mb-3">
+                        <p class="text-muted mb-2">Also available on:</p>
+                        <div class="app-stores">
+                            <a href="#" class="text-decoration-none me-3">
+                                <div class="d-flex align-items-center app-store-btn">
+                                    <i class="fab fa-google-play text-success me-2"></i>
+                                    <span class="text-muted">Google Play Store</span>
+                                </div>
+                            </a>
+                            <!-- <a href="#" class="text-decoration-none">
+                                <div class="d-flex align-items-center app-store-btn">
+                                    <i class="fab fa-apple text-light me-2"></i>
+                                    <span class="text-muted">Apple App Store</span>
+                                </div>
+                            </a> -->
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Admin and Staffs</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="admin.html" class="text-muted text-decoration-none">Admin Panel</a></li>
+                        <li class="mb-2"><a href="orders.html" class="text-muted text-decoration-none">Order Management</a></li>
+                        <li class="mb-2"><a href="product-management.html" class="text-muted text-decoration-none">Product Management</a></li>
+                        <li class="mb-2"><a href="staff.html" class="text-muted text-decoration-none">Staff Portal</a></li>
+                        <li class="mb-2"><a href="profile.html" class="text-muted text-decoration-none">Staff Profile</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="help.html" class="text-muted text-decoration-none">Help Center</a></li>
+                        <li class="mb-2"><a href="installation-guide.html" class="text-muted text-decoration-none">Installation Guide</a></li>
+                        <li class="mb-2"><a href="warranty.html" class="text-muted text-decoration-none">Warranty</a></li>
+                        <li class="mb-2"><a href="returns.html" class="text-muted text-decoration-none">Returns</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="our-team.html" class="text-muted text-decoration-none">Our Team</a></li>
+                        <li class="mb-2"><a href="careers.html" class="text-muted text-decoration-none">Careers</a></li>
+                        <li class="mb-2"><a href="press.html" class="text-muted text-decoration-none">Press</a></li>
+                        <li class="mb-2"><a href="investors.html" class="text-muted text-decoration-none">Investors</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="privacy-policy.html" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms-of-service.html" class="text-muted text-decoration-none">Terms of Service</a></li>
+                        <li class="mb-2"><a href="cookie-policy.html" class="text-muted text-decoration-none">Cookie Policy</a></li>
+                        <li class="mb-2"><a href="gdpr.html" class="text-muted text-decoration-none">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">&copy; 2025 EzHome. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="payment-methods">
+                        <span class="text-muted me-3">We Accept:</span>
+                        <i class="fab fa-cc-visa text-muted me-2"></i>
+                        <i class="fab fa-cc-mastercard text-muted me-2"></i>
+                        <i class="fab fa-cc-paypal text-muted me-2"></i>
+                        <i class="fab fa-cc-apple-pay text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Modal -->
+    <div class="modal fade" id="liveChatModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Live Chat Support</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="fas fa-comments fa-3x text-primary mb-3"></i>
+                        <h5>Connect with our support team</h5>
+                        <p class="text-muted">Get instant help with your installation or technical questions.</p>
+                        <button class="btn btn-primary">Start Chat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

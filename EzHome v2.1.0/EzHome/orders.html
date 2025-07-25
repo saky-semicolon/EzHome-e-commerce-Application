@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzHome - Order Management Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <style>
+        .order-body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .order-sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            min-height: calc(100vh - 40px);
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .order-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            min-height: calc(100vh - 40px);
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-pending {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+        
+        .status-processing {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .status-shipped {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+        
+        .status-delivered {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .status-cancelled {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+            color: white;
+        }
+        
+        .order-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .order-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+        }
+        
+        .order-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="order-body">
+    <!-- Order Management Dashboard Container -->
+    <div class="container-fluid px-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="order-sidebar p-4">
+                    <div class="text-center mb-4">
+                        <div class="mb-3">
+                            <i class="fas fa-shopping-cart fa-3x" style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+                        </div>
+                        <h4 class="fw-bold mb-1" style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Order Management</h4>
+                        <p class="text-muted small">Dashboard Control Panel</p>
+                    </div>
+                    
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#orders" data-tab="orders">
+                                <i class="fas fa-list me-2"></i>All Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#analytics" data-tab="analytics">
+                                <i class="fas fa-chart-line me-2"></i>Analytics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#reports" data-tab="reports">
+                                <i class="fas fa-file-alt me-2"></i>Reports
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin.html">
+                                <i class="fas fa-users me-2"></i>User Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product-management.html">
+                                <i class="fas fa-box me-2"></i>Product Management
+                            </a>
+                        </li>
+                        <li class="nav-item mt-3">
+                            <a class="nav-link text-danger" href="index.html" id="logout-btn">
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <div class="order-content p-4">
+                    <!-- Header -->
+                    <div class="admin-header">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <h1 class="fw-bold mb-1">Order Dashboard</h1>
+                                <p class="text-muted mb-0">Manage and track all customer orders</p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <div class="d-flex align-items-center justify-content-md-end">
+                                    <span class="badge bg-success me-2">
+                                        <i class="fas fa-circle me-1"></i>Online
+                                    </span>
+                                    <small class="text-muted" id="current-time"></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="row mb-4" id="stats-section">
+                        <div class="col-md-3 mb-3">
+                            <div class="stats-card p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-shopping-cart fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-0" id="total-orders">0</h3>
+                                        <small class="text-muted">Total Orders</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="stats-card p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-clock fa-2x text-warning"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-0" id="pending-orders">0</h3>
+                                        <small class="text-muted">Pending</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="stats-card p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-truck fa-2x text-info"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-0" id="shipped-orders">0</h3>
+                                        <small class="text-muted">Shipped</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="stats-card p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle fa-2x text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-0" id="delivered-orders">0</h3>
+                                        <small class="text-muted">Delivered</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- Orders Tab -->
+                        <div class="tab-pane active" id="orders-tab">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h2 class="fw-bold mb-0">Order Management</h2>
+                                <div class="d-flex gap-2">
+                                    <input type="text" class="form-control search-box" placeholder="Search orders..." id="order-search" style="width: 250px;">
+                                    <select class="form-select search-box" id="status-filter" style="width: 150px;">
+                                        <option value="">All Status</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="shipped">Shipped</option>
+                                        <option value="delivered">Delivered</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="user-table">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th><i class="fas fa-hashtag me-2"></i>Order ID</th>
+                                            <th><i class="fas fa-user me-2"></i>Customer</th>
+                                            <th><i class="fas fa-shopping-bag me-2"></i>Items</th>
+                                            <th><i class="fas fa-dollar-sign me-2"></i>Total</th>
+                                            <th><i class="fas fa-credit-card me-2"></i>Payment</th>
+                                            <th><i class="fas fa-info-circle me-2"></i>Status</th>
+                                            <th><i class="fas fa-calendar me-2"></i>Date</th>
+                                            <th><i class="fas fa-cogs me-2"></i>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="order-list">
+                                        <!-- Order list will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Analytics Tab -->
+                        <div class="tab-pane" id="analytics-tab">
+                            <h2 class="fw-bold mb-4">
+                                <i class="fas fa-chart-bar me-2"></i>Order Analytics
+                            </h2>
+                            
+                            <!-- Overview Stats -->
+                            <div class="row mb-4">
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="stats-card p-3 text-center">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <h3 id="total-orders-count" class="fw-bold text-primary mb-1">0</h3>
+                                                <small class="text-muted">Total Orders</small>
+                                            </div>
+                                            <i class="fas fa-shopping-cart fa-2x text-primary opacity-50"></i>
+                                        </div>
+                                        <div class="progress mt-2" style="height: 4px;">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="stats-card p-3 text-center">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <h3 id="total-revenue" class="fw-bold text-success mb-1">$0</h3>
+                                                <small class="text-muted">Total Revenue</small>
+                                            </div>
+                                            <i class="fas fa-dollar-sign fa-2x text-success opacity-50"></i>
+                                        </div>
+                                        <div class="progress mt-2" style="height: 4px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="stats-card p-3 text-center">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <h3 id="avg-order-value" class="fw-bold text-warning mb-1">$0</h3>
+                                                <small class="text-muted">Avg Order Value</small>
+                                            </div>
+                                            <i class="fas fa-calculator fa-2x text-warning opacity-50"></i>
+                                        </div>
+                                        <div class="progress mt-2" style="height: 4px;">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                    <div class="stats-card p-3 text-center">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <h3 id="pending-orders" class="fw-bold text-info mb-1">0</h3>
+                                                <small class="text-muted">Pending Orders</small>
+                                            </div>
+                                            <i class="fas fa-clock fa-2x text-info opacity-50"></i>
+                                        </div>
+                                        <div class="progress mt-2" style="height: 4px;">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 60%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Charts Section -->
+                            <div class="row mb-4">
+                                <div class="col-lg-8 mb-4">
+                                    <div class="stats-card p-4">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="fw-bold mb-0">
+                                                <i class="fas fa-chart-line me-2"></i>Sales Trend
+                                            </h5>
+                                            <select class="form-select w-auto" id="sales-chart-period">
+                                                <option value="7">Last 7 Days</option>
+                                                <option value="30" selected>Last 30 Days</option>
+                                                <option value="90">Last 3 Months</option>
+                                            </select>
+                                        </div>
+                                        <canvas id="salesChart" height="100"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <div class="stats-card p-4">
+                                        <h5 class="fw-bold mb-3">
+                                            <i class="fas fa-chart-pie me-2"></i>Order Status
+                                        </h5>
+                                        <canvas id="orderStatusChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-lg-6 mb-4">
+                                    <div class="stats-card p-4">
+                                        <h5 class="fw-bold mb-3">
+                                            <i class="fas fa-chart-bar me-2"></i>Monthly Revenue
+                                        </h5>
+                                        <canvas id="monthlyRevenueChart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="stats-card p-4">
+                                        <h5 class="fw-bold mb-3">
+                                            <i class="fas fa-trophy me-2"></i>Top Products by Orders
+                                        </h5>
+                                        <canvas id="topProductsChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Performance Metrics -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="stats-card p-4">
+                                        <h5 class="fw-bold mb-4">
+                                            <i class="fas fa-tachometer-alt me-2"></i>Performance Metrics
+                                        </h5>
+                                        <div class="row">
+                                            <div class="col-md-3 mb-3">
+                                                <div class="text-center">
+                                                    <div class="mb-2">
+                                                        <i class="fas fa-percentage fa-2x text-primary"></i>
+                                                    </div>
+                                                    <h6 class="fw-bold">Completion Rate</h6>
+                                                    <div class="progress mb-1" style="height: 8px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 85%" id="completion-rate-bar"></div>
+                                                    </div>
+                                                    <small class="text-muted" id="completion-rate-text">85%</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <div class="text-center">
+                                                    <div class="mb-2">
+                                                        <i class="fas fa-shipping-fast fa-2x text-success"></i>
+                                                    </div>
+                                                    <h6 class="fw-bold">Avg Processing Time</h6>
+                                                    <div class="progress mb-1" style="height: 8px;">
+                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 75%"></div>
+                                                    </div>
+                                                    <small class="text-muted" id="avg-processing-time">2.3 days</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <div class="text-center">
+                                                    <div class="mb-2">
+                                                        <i class="fas fa-undo fa-2x text-warning"></i>
+                                                    </div>
+                                                    <h6 class="fw-bold">Return Rate</h6>
+                                                    <div class="progress mb-1" style="height: 8px;">
+                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 15%" id="return-rate-bar"></div>
+                                                    </div>
+                                                    <small class="text-muted" id="return-rate-text">2.5%</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <div class="text-center">
+                                                    <div class="mb-2">
+                                                        <i class="fas fa-star fa-2x text-info"></i>
+                                                    </div>
+                                                    <h6 class="fw-bold">Customer Satisfaction</h6>
+                                                    <div class="progress mb-1" style="height: 8px;">
+                                                        <div class="progress-bar bg-info" role="progressbar" style="width: 92%"></div>
+                                                    </div>
+                                                    <small class="text-muted">4.6/5.0</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reports Tab -->
+                        <div class="tab-pane" id="reports-tab">
+                            <h2 class="fw-bold mb-4">
+                                <i class="fas fa-file-alt me-2"></i>Order Reports
+                            </h2>
+                            
+                            <!-- Report Generation Controls -->
+                            <div class="stats-card p-4 mb-4">
+                                <h5 class="fw-bold mb-4">
+                                    <i class="fas fa-cog me-2"></i>Report Configuration
+                                </h5>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="report-type" class="form-label">Report Type</label>
+                                        <select class="form-select" id="report-type">
+                                            <option value="all">All Orders</option>
+                                            <option value="pending">Pending Orders</option>
+                                            <option value="completed">Completed Orders</option>
+                                            <option value="cancelled">Cancelled Orders</option>
+                                            <option value="revenue">Revenue Report</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="date-from" class="form-label">From Date</label>
+                                        <input type="date" class="form-control" id="date-from">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="date-to" class="form-label">To Date</label>
+                                        <input type="date" class="form-control" id="date-to">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Include Fields</label>
+                                        <div class="d-flex flex-wrap gap-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="include-customer" checked>
+                                                <label class="form-check-label" for="include-customer">Customer Info</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="include-products" checked>
+                                                <label class="form-check-label" for="include-products">Products</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="include-totals" checked>
+                                                <label class="form-check-label" for="include-totals">Totals</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="include-status" checked>
+                                                <label class="form-check-label" for="include-status">Status</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Export Format</label>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-danger" onclick="generatePDFReport()">
+                                                <i class="fas fa-file-pdf me-1"></i>Export PDF
+                                            </button>
+                                            <button class="btn btn-success" onclick="generateCSVReport()">
+                                                <i class="fas fa-file-csv me-1"></i>Export CSV
+                                            </button>
+                                            <button class="btn btn-primary" onclick="generateExcelReport()">
+                                                <i class="fas fa-file-excel me-1"></i>Export Excel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Reports -->
+                            <div class="stats-card p-4 mb-4">
+                                <h5 class="fw-bold mb-4">
+                                    <i class="fas fa-bolt me-2"></i>Quick Reports
+                                </h5>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="d-grid">
+                                            <button class="btn btn-outline-primary" onclick="generateQuickReport('daily')">
+                                                <i class="fas fa-calendar-day me-2"></i>
+                                                <div>
+                                                    <div class="fw-bold">Daily Report</div>
+                                                    <small>Today's orders</small>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="d-grid">
+                                            <button class="btn btn-outline-success" onclick="generateQuickReport('weekly')">
+                                                <i class="fas fa-calendar-week me-2"></i>
+                                                <div>
+                                                    <div class="fw-bold">Weekly Report</div>
+                                                    <small>Last 7 days</small>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="d-grid">
+                                            <button class="btn btn-outline-info" onclick="generateQuickReport('monthly')">
+                                                <i class="fas fa-calendar-alt me-2"></i>
+                                                <div>
+                                                    <div class="fw-bold">Monthly Report</div>
+                                                    <small>This month</small>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Report Preview -->
+                            <div class="stats-card p-4">
+                                <h5 class="fw-bold mb-4">
+                                    <i class="fas fa-eye me-2"></i>Report Preview
+                                </h5>
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="report-preview-table">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Customer</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Total</th>
+                                                <th>Products</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="report-preview-body">
+                                            <tr>
+                                                <td colspan="6" class="text-center text-muted">
+                                                    Select report parameters and click "Preview Report" to see data
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-outline-secondary" onclick="previewReport()">
+                                        <i class="fas fa-search me-1"></i>Preview Report
+                                    </button>
+                                    <button class="btn btn-primary ms-2" onclick="refreshReportData()">
+                                        <i class="fas fa-sync me-1"></i>Refresh Data
+                                    </button>
+                                    <span class="ms-3 text-muted" id="report-summary">
+                                        <!-- Report summary will appear here -->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Order Details Modal -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="border-radius: 20px; border: none; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);">
+                <div class="modal-header" style="background: var(--primary-gradient); color: white; border-radius: 20px 20px 0 0; border: none;">
+                    <h5 class="modal-title fw-bold" id="orderDetailsModalLabel">
+                        <i class="fas fa-receipt me-2"></i>Order Details
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4" id="order-details-content">
+                    <!-- Order details will be injected here -->
+                </div>
+                <div class="modal-footer border-0 p-4">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal" style="border-radius: 12px; padding: 0.75rem 1.5rem;">
+                        <i class="fas fa-times me-1"></i>Close
+                    </button>
+                    <button type="button" class="btn btn-gradient" id="update-order-status">
+                        <i class="fas fa-edit me-1"></i>Update Status
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Status Update Modal -->
+    <div class="modal fade" id="statusUpdateModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 20px; border: none; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);">
+                <div class="modal-header" style="background: var(--success-gradient); color: white; border-radius: 20px 20px 0 0; border: none;">
+                    <h5 class="modal-title fw-bold">
+                        <i class="fas fa-sync-alt me-2"></i>Update Order Status
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="status-update-form">
+                        <input type="hidden" id="update-order-id">
+                        <div class="mb-3">
+                            <label for="new-status" class="form-label fw-semibold">
+                                <i class="fas fa-info-circle me-1"></i>New Status
+                            </label>
+                            <select class="form-select search-box" id="new-status" required>
+                                <option value="pending">Pending</option>
+                                <option value="processing">Processing</option>
+                                <option value="shipped">Shipped</option>
+                                <option value="delivered">Delivered</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="status-note" class="form-label fw-semibold">
+                                <i class="fas fa-sticky-note me-1"></i>Note (Optional)
+                            </label>
+                            <textarea class="form-control search-box" id="status-note" rows="3" placeholder="Add a note about this status change..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 p-4">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal" style="border-radius: 12px; padding: 0.75rem 1.5rem;">
+                        <i class="fas fa-times me-1"></i>Cancel
+                    </button>
+                    <button type="submit" form="status-update-form" class="btn btn-gradient">
+                        <i class="fas fa-save me-1"></i>Update Status
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">EzHome</h5>
+                    <p class="text-muted">Making homes smarter, safer, and more efficient with cutting-edge IoT technology.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Support</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="help.html" class="text-muted text-decoration-none">Help Center</a></li>
+                                <li class="mb-2"><a href="installation-guide.html" class="text-muted text-decoration-none">Installation Guide</a></li>
+                                <li class="mb-2"><a href="warranty.html" class="text-muted text-decoration-none">Warranty</a></li>
+                                <li class="mb-2"><a href="returns.html" class="text-muted text-decoration-none">Returns</a></li>
+                                <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Company</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                                <li class="mb-2"><a href="our-team.html" class="text-muted text-decoration-none">Our Team</a></li>
+                                <li class="mb-2"><a href="careers.html" class="text-muted text-decoration-none">Careers</a></li>
+                                <li class="mb-2"><a href="press.html" class="text-muted text-decoration-none">Press</a></li>
+                                <li class="mb-2"><a href="investors.html" class="text-muted text-decoration-none">Investors</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Legal</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="privacy-policy.html" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                                <li class="mb-2"><a href="terms-of-service.html" class="text-muted text-decoration-none">Terms of Service</a></li>
+                                <li class="mb-2"><a href="cookie-policy.html" class="text-muted text-decoration-none">Cookie Policy</a></li>
+                                <li class="mb-2"><a href="gdpr.html" class="text-muted text-decoration-none">GDPR</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Contact</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                                <li class="mb-2"><span class="text-muted">1-800-EZHOME-1</span></li>
+                                <li class="mb-2"><span class="text-muted">support@ezhome.com</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0 text-muted">&copy; 2025 EzHome. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/orders.js"></script>
+</body>
+</html>

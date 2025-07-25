@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Test - EzHome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Authentication & Checkout Test</h1>
+        
+        <div class="alert alert-info">
+            <h5><i class="fas fa-info-circle me-2"></i>Testing the authentication fix</h5>
+            <p>This test will verify that the cart checkout button properly recognizes logged-in users.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Step 1: User Authentication</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="auth-status" class="mb-3"></div>
+                        <button class="btn btn-primary" onclick="testLogin()">Create & Login Test User</button>
+                        <button class="btn btn-secondary ms-2" onclick="testLogout()">Logout</button>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5>Step 2: Cart & Checkout Test</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="cart-status" class="mb-3"></div>
+                        <button class="btn btn-success" onclick="addItemAndTest()" id="cart-test-btn" disabled>Add Item & Test Checkout</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Debug Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-info mb-3" onclick="showDebugInfo()">Refresh Debug Info</button>
+                        <pre id="debug-info" class="bg-light p-3 rounded"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-success mt-4">
+            <h6><i class="fas fa-check-circle me-2"></i>Test Instructions:</h6>
+            <ol>
+                <li>Click "Create & Login Test User" to authenticate</li>
+                <li>Click "Add Item & Test Checkout" to test the cart checkout flow</li>
+                <li>If successful, you should be redirected to the checkout page</li>
+                <li>If it shows "You must be logged in", the issue still exists</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+        function updateAuthStatus() {
+            const currentUser = getCurrentUser();
+            const statusDiv = document.getElementById('auth-status');
+            
+            if (currentUser) {
+                statusDiv.innerHTML = `
+                    <div class="alert alert-success">
+                        ✅ Logged in as: <strong>${currentUser.username}</strong>
+                        <br>Email: ${currentUser.email}
+                    </div>
+                `;
+                document.getElementById('cart-test-btn').disabled = false;
+            } else {
+                statusDiv.innerHTML = `
+                    <div class="alert alert-warning">
+                        ❌ Not logged in
+                    </div>
+                `;
+                document.getElementById('cart-test-btn').disabled = true;
+            }
+        }
+
+        function testLogin() {
+            // Create test user
+            const testUser = {
+                username: 'testuser',
+                password: 'test123',
+                firstName: 'Test',
+                lastName: 'User',
+                email: 'test@example.com',
+                phone: '+1-555-0123',
+                address: '123 Test St',
+                city: 'Test City',
+                state: 'TS',
+                zip: '12345'
+            };
+
+            // Add to users if not exists
+            let users = JSON.parse(localStorage.getItem('users') || '[]');
+            const existingUser = users.find(u => u.username === testUser.username);
+            
+            if (!existingUser) {
+                users.push(testUser);
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+
+            // Login the user
+            localStorage.setItem('currentUser', JSON.stringify(testUser));
+            
+            updateAuthStatus();
+        }
+
+        function testLogout() {
+            localStorage.removeItem('currentUser');
+            updateAuthStatus();
+        }
+
+        function addItemAndTest() {
+            try {
+                // Clear cart first
+                if (window.cartManager) {
+                    window.cartManager.clearCart();
+                }
+
+                // Add test item to cart
+                if (window.products && window.products.length > 0) {
+                    const testProduct = window.products[0];
+                    
+                    // Add item manually to cart for testing
+                    let cart = JSON.parse(localStorage.getItem('cart_testuser') || '[]');
+                    cart.push({
+                        id: testProduct.id,
+                        name: testProduct.name,
+                        price: testProduct.price_sgd || testProduct.price || 99.99,
+                        image_url: testProduct.image_url || testProduct.image,
+                        category: testProduct.category,
+                        quantity: 1
+                    });
+                    localStorage.setItem('cart_testuser', JSON.stringify(cart));
+                    
+                    // Update cart manager if available
+                    if (window.cartManager) {
+                        window.cartManager.updateCartDisplay();
+                    }
+
+                    document.getElementById('cart-status').innerHTML = `
+                        <div class="alert alert-info">
+                            ✅ Added "${testProduct.name}" to cart
+                            <br>Now testing checkout authentication...
+                        </div>
+                    `;
+
+                    // Simulate clicking the checkout button
+                    setTimeout(() => {
+                        simulateCheckoutClick();
+                    }, 1000);
+                    
+                } else {
+                    document.getElementById('cart-status').innerHTML = `
+                        <div class="alert alert-danger">
+                            ❌ No products available for testing
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('cart-status').innerHTML = `
+                    <div class="alert alert-danger">
+                        ❌ Error: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        function simulateCheckoutClick() {
+            // Get current user and cart
+            const currentUser = getCurrentUser();
+            const cart = JSON.parse(localStorage.getItem('cart_testuser') || '[]');
+            
+            if (cart.length === 0) {
+                document.getElementById('cart-status').innerHTML += `
+                    <div class="alert alert-warning">
+                        ⚠️ Cart is empty - cannot test checkout
+                    </div>
+                `;
+                return;
+            }
+
+            if (!currentUser) {
+                document.getElementById('cart-status').innerHTML += `
+                    <div class="alert alert-danger">
+                        ❌ Authentication check failed - this is the bug!
+                    </div>
+                `;
+                return;
+            }
+
+            document.getElementById('cart-status').innerHTML += `
+                <div class="alert alert-success">
+                    ✅ Authentication check passed!
+                    <br>Cart has ${cart.length} item(s)
+                    <br>User: ${currentUser.username}
+                    <br><strong>You can now proceed to checkout!</strong>
+                </div>
+            `;
+
+            // Redirect to checkout after a delay
+            setTimeout(() => {
+                window.location.href = 'checkout.html';
+            }, 2000);
+        }
+
+        function showDebugInfo() {
+            const currentUser = getCurrentUser();
+            const cartUser = JSON.parse(localStorage.getItem('cart_testuser') || '[]');
+            
+            const debugInfo = {
+                'getCurrentUser()': currentUser,
+                'localStorage.currentUser': localStorage.getItem('currentUser'),
+                'localStorage.loggedInUser': localStorage.getItem('loggedInUser'),
+                'cart_testuser': cartUser,
+                'cartManager available': !!window.cartManager,
+                'products available': window.products ? window.products.length : 0,
+                'current page': window.location.pathname
+            };
+
+            document.getElementById('debug-info').textContent = JSON.stringify(debugInfo, null, 2);
+        }
+
+        // Initialize page
+        $(document).ready(function() {
+            updateAuthStatus();
+            showDebugInfo();
+        });
+    </script>
+</body>
+</html>

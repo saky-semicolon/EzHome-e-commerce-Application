@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzHome - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">EzHome</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                    <div id="user-auth" class="d-flex">
+                        <a href="#" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    </div>
+                    <div id="cart-icon" class="ms-3">
+                        <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-fluid p-0">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="hero-content">
+                            <h1 class="display-4 fw-bold mb-4">Welcome to EzHome</h1>
+                            <p class="lead mb-4">Transform your house into a smart home with our cutting-edge IoT devices and intelligent automation solutions.</p>
+                            <div class="hero-stats mb-4">
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <h3 class="text-primary">20+</h3>
+                                        <small class="text-muted">Smart Products</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <h3 class="text-primary">5000+</h3>
+                                        <small class="text-muted">Happy Customers</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <h3 class="text-primary">99.9%</h3>
+                                        <small class="text-muted">Uptime</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hero-buttons">
+                                <a href="#products" class="btn btn-primary btn-lg me-3">Shop Now</a>
+                                <a href="about.html" class="btn btn-outline-secondary btn-lg">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-image text-center">
+                            <img src="images/banner.png" alt="Smart Home Ecosystem" class="img-fluid rounded shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-5 bg-light animate-on-scroll">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 class="display-6 fw-bold mb-3">Why Choose EzHome?</h2>
+                        <p class="lead text-muted">Experience the future of home automation with our premium smart devices</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4 animate-on-scroll">
+                        <div class="feature-card text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-home fa-3x text-primary"></i>
+                            </div>
+                            <h5>Easy Installation</h5>
+                            <p class="text-muted">Plug-and-play setup with step-by-step guides. No technical expertise required.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 animate-on-scroll">
+                        <div class="feature-card text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-shield-alt fa-3x text-primary"></i>
+                            </div>
+                            <h5>Secure & Private</h5>
+                            <p class="text-muted">Bank-level encryption and local processing keep your data safe and private.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 animate-on-scroll">
+                        <div class="feature-card text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-mobile-alt fa-3x text-primary"></i>
+                            </div>
+                            <h5>Smart Control</h5>
+                            <p class="text-muted">Control everything from anywhere with our intuitive mobile app and voice commands.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mt-4">
+            <div id="featured-products-carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Carousel items will be injected here by JavaScript -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#featured-products-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featured-products-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <section id="shop-by-category" class="mt-5">
+                <h2>Shop by Category</h2>
+                <div id="category-links" class="list-group">
+                    <!-- Category links will be injected here by JavaScript -->
+                </div>
+            </section>
+
+            <section id="product-search" class="mt-5">
+                <h2>All Products</h2>
+                <div class="input-group mb-3">
+                    <input type="text" id="search-input" class="form-control" placeholder="Search for products...">
+                    <button id="search-button" class="btn btn-outline-secondary" type="button">Search</button>
+                </div>
+                <div id="search-results" class="row"></div>
+            </section>
+
+            <section id="products" class="mt-5">
+                <h2>Products</h2>
+                <div id="product-list" class="row">
+                    <!-- Products will be injected here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section id="testimonials" class="py-5 bg-light animate-on-scroll">
+                <div class="container">
+                    <div class="row mb-5">
+                        <div class="col-12 text-center">
+                            <h2 class="display-6 fw-bold mb-3">What Our Customers Say</h2>
+                            <p class="lead text-muted">Real experiences from satisfied EzHome users</p>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-4 animate-on-scroll">
+                            <div class="testimonial-card h-100">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body p-4">
+                                        <div class="rating mb-3">
+                                            <span class="text-warning">★★★★★</span>
+                                        </div>
+                                        <p class="card-text">"EzHome transformed my house into a smart home seamlessly. The voice assistant hub is incredibly responsive and the automation features save me so much time every day."</p>
+                                        <div class="customer-info mt-3">
+                                            <h6 class="mb-1">Sarah Johnson</h6>
+                                            <small class="text-muted">Homeowner, San Francisco</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 animate-on-scroll">
+                            <div class="testimonial-card h-100">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body p-4">
+                                        <div class="rating mb-3">
+                                            <span class="text-warning">★★★★★</span>
+                                        </div>
+                                        <p class="card-text">"The smart security system gives me peace of mind when I'm away. The cameras are crystal clear and the mobile alerts are instant. Highly recommended!"</p>
+                                        <div class="customer-info mt-3">
+                                            <h6 class="mb-1">Michael Chen</h6>
+                                            <small class="text-muted">Business Owner, New York</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 animate-on-scroll">
+                            <div class="testimonial-card h-100">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body p-4">
+                                        <div class="rating mb-3">
+                                            <span class="text-warning">★★★★★</span>
+                                        </div>
+                                        <p class="card-text">"Love the smart lighting system! The automated schedules and energy savings are fantastic. Installation was a breeze and customer support is excellent."</p>
+                                        <div class="customer-info mt-3">
+                                            <h6 class="mb-1">Emily Rodriguez</h6>
+                                            <small class="text-muted">Interior Designer, Austin</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Smart Home Solutions Section -->
+            <section id="solutions" class="py-5 solutions-section position-relative overflow-hidden">
+                <div class="solutions-background"></div>
+                <div class="container position-relative">
+                    <div class="row mb-5">
+                        <div class="col-12 text-center">
+                            <div class="solutions-header animate-on-scroll">
+                                <div class="section-badge mb-3">
+                                    <i class="fas fa-home text-primary"></i>
+                                    <span>Smart Solutions</span>
+                                </div>
+                                <h2 class="display-5 fw-bold mb-3 solutions-title">
+                                    <span class="text-gradient">Complete Smart Home</span> 
+                                    <span class="highlight-text">Solutions</span>
+                                </h2>
+                                <p class="lead text-muted mb-4">Discover our comprehensive packages for every home and budget</p>
+                                <div class="solutions-stats d-flex justify-content-center gap-4 flex-wrap mb-4">
+                                    <div class="stat-item">
+                                        <h5 class="text-primary mb-0">3</h5>
+                                        <small class="text-muted">Package Options</small>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h5 class="text-primary mb-0">Pro</h5>
+                                        <small class="text-muted">Installation</small>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h5 class="text-primary mb-0">2-Year</h5>
+                                        <small class="text-muted">Warranty</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-4 col-md-6 animate-on-scroll">
+                            <div class="solution-card premium-pricing-card">
+                                <div class="pricing-header starter-header">
+                                    <div class="package-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <h5 class="package-name">Starter Package</h5>
+                                    <div class="price-container">
+                                        <span class="currency">$</span>
+                                        <span class="price">499</span>
+                                        <span class="period">/package</span>
+                                    </div>
+                                    <p class="package-description">Perfect for small apartments and beginners</p>
+                                </div>
+                                <div class="pricing-body">
+                                    <ul class="features-list">
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Echo Hub Essential</span>
+                                            <i class="fas fa-info-circle feature-info" title="Voice control hub with basic features"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>4x Smart LED Bulbs</span>
+                                            <i class="fas fa-info-circle feature-info" title="Color-changing WiFi bulbs"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>2x Smart Outlets</span>
+                                            <i class="fas fa-info-circle feature-info" title="Remote controllable power outlets"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Mobile App Access</span>
+                                            <i class="fas fa-info-circle feature-info" title="iOS and Android apps included"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Free Installation Guide</span>
+                                            <i class="fas fa-info-circle feature-info" title="Step-by-step setup instructions"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="package-features">
+                                        <div class="feature-badge">
+                                            <i class="fas fa-shipping-fast"></i>
+                                            <span>Free Shipping</span>
+                                        </div>
+                                        <div class="feature-badge">
+                                            <i class="fas fa-tools"></i>
+                                            <span>Easy Setup</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pricing-footer">
+                                    <button class="btn pricing-btn starter-btn w-100">
+                                        <span>Get Started</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 animate-on-scroll">
+                            <div class="solution-card premium-pricing-card featured-card">
+                                <div class="popular-ribbon">
+                                    <span>Most Popular</span>
+                                </div>
+                                <div class="pricing-header premium-header">
+                                    <div class="package-icon">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                    <h5 class="package-name">Premium Package</h5>
+                                    <div class="price-container">
+                                        <span class="currency">$</span>
+                                        <span class="price">999</span>
+                                        <span class="period">/package</span>
+                                    </div>
+                                    <p class="package-description">Ideal for medium to large homes</p>
+                                    <div class="savings-badge">Save 20%</div>
+                                </div>
+                                <div class="pricing-body">
+                                    <ul class="features-list">
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Echo Hub Standard</span>
+                                            <i class="fas fa-info-circle feature-info" title="Advanced hub with premium features"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Smart Thermostat Pro</span>
+                                            <i class="fas fa-info-circle feature-info" title="AI-powered climate control"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>8x Smart LED Bulbs</span>
+                                            <i class="fas fa-info-circle feature-info" title="Premium color-changing bulbs"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Smart Security Camera</span>
+                                            <i class="fas fa-info-circle feature-info" title="1080p HD with night vision"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Smart Door Lock</span>
+                                            <i class="fas fa-info-circle feature-info" title="Keyless entry with app control"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Professional Installation</span>
+                                            <i class="fas fa-info-circle feature-info" title="Expert technician setup"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="package-features">
+                                        <div class="feature-badge">
+                                            <i class="fas fa-user-tie"></i>
+                                            <span>Pro Install</span>
+                                        </div>
+                                        <div class="feature-badge">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span>1-Year Warranty</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pricing-footer">
+                                    <button class="btn pricing-btn premium-btn w-100">
+                                        <span>Choose Premium</span>
+                                        <i class="fas fa-crown"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 animate-on-scroll">
+                            <div class="solution-card premium-pricing-card">
+                                <div class="pricing-header elite-header">
+                                    <div class="package-icon">
+                                        <i class="fas fa-gem"></i>
+                                    </div>
+                                    <h5 class="package-name">Elite Package</h5>
+                                    <div class="price-container">
+                                        <span class="currency">$</span>
+                                        <span class="price">1,999</span>
+                                        <span class="period">/package</span>
+                                    </div>
+                                    <p class="package-description">Ultimate smart home experience</p>
+                                </div>
+                                <div class="pricing-body">
+                                    <ul class="features-list">
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>All Premium Features</span>
+                                            <i class="fas fa-info-circle feature-info" title="Everything from Premium package"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Smart Outdoor Camera</span>
+                                            <i class="fas fa-info-circle feature-info" title="Weatherproof 4K security camera"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Sky Blinds Automated</span>
+                                            <i class="fas fa-info-circle feature-info" title="Motorized window blinds"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>Smart Irrigation System</span>
+                                            <i class="fas fa-info-circle feature-info" title="Automated garden watering"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>24/7 Premium Support</span>
+                                            <i class="fas fa-info-circle feature-info" title="Dedicated support team"></i>
+                                        </li>
+                                        <li class="feature-item">
+                                            <i class="fas fa-check feature-check"></i>
+                                            <span>2-Year Extended Warranty</span>
+                                            <i class="fas fa-info-circle feature-info" title="Comprehensive coverage"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="package-features">
+                                        <div class="feature-badge">
+                                            <i class="fas fa-concierge-bell"></i>
+                                            <span>White Glove</span>
+                                        </div>
+                                        <div class="feature-badge">
+                                            <i class="fas fa-infinity"></i>
+                                            <span>Lifetime Support</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pricing-footer">
+                                    <button class="btn pricing-btn elite-btn w-100">
+                                        <span>Go Elite</span>
+                                        <i class="fas fa-gem"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12 text-center">
+                            <div class="solutions-guarantee">
+                                <div class="guarantee-content">
+                                    <i class="fas fa-medal guarantee-icon"></i>
+                                    <h5>30-Day Money-Back Guarantee</h5>
+                                    <p class="text-muted">Not satisfied? Get a full refund within 30 days of purchase.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter Section -->
+            <section id="newsletter" class="newsletter-section py-5 position-relative overflow-hidden">
+                <div class="newsletter-bg"></div>
+                <div class="container position-relative">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 mb-4 mb-lg-0">
+                            <div class="newsletter-content">
+                                <div class="newsletter-icon mb-3">
+                                    <i class="fas fa-envelope-open fa-3x text-warning"></i>
+                                </div>
+                                <h3 class="fw-bold mb-3 newsletter-title">
+                                    <span class="text-gradient">Stay Connected</span> with EzHome
+                                </h3>
+                                <p class="mb-4 newsletter-description">Get the latest smart home tips, product updates, and exclusive offers delivered to your inbox. Join over 10,000+ smart home enthusiasts!</p>
+                                <div class="newsletter-benefits">
+                                    <div class="benefit-item mb-2">
+                                        <i class="fas fa-check-circle text-warning me-2"></i>
+                                        <span>Weekly smart home tips & tricks</span>
+                                    </div>
+                                    <div class="benefit-item mb-2">
+                                        <i class="fas fa-check-circle text-warning me-2"></i>
+                                        <span>Exclusive product discounts</span>
+                                    </div>
+                                    <div class="benefit-item">
+                                        <i class="fas fa-check-circle text-warning me-2"></i>
+                                        <span>Early access to new products</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="newsletter-form-container">
+                                <form class="newsletter-form enhanced-form">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control newsletter-input" id="newsletter-email" placeholder="Enter your email address" required>
+                                        <label for="newsletter-email">
+                                            <i class="fas fa-envelope me-2"></i>Your Email Address
+                                        </label>
+                                    </div>
+                                    <button class="btn newsletter-btn w-100 mb-3" type="submit">
+                                        <span class="btn-text">Subscribe Now</span>
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                        <div class="btn-sparkle"></div>
+                                    </button>
+                                    <div class="newsletter-footer text-center">
+                                        <small class="text-light opacity-75">
+                                            <i class="fas fa-shield-alt me-1"></i>
+                                            We respect your privacy. Unsubscribe at any time.
+                                        </small>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="newsletter-pattern"></div>
+            </section>
+
+            <!-- Trust & Security Section -->
+            <section id="trust" class="py-5 trust-section position-relative overflow-hidden">
+                <div class="trust-background-pattern"></div>
+                <div class="container position-relative">
+                    <div class="row mb-5">
+                        <div class="col-12 text-center">
+                            <div class="trust-header animate-on-scroll">
+                                <div class="trust-badge mb-3">
+                                    <i class="fas fa-shield-alt text-primary"></i>
+                                    <span>Trusted Partner</span>
+                                </div>
+                                <h2 class="display-5 fw-bold mb-3 trust-title">
+                                    <span class="text-gradient">Trusted by</span> 
+                                    <span class="highlight-text">Thousands</span>
+                                </h2>
+                                <p class="lead text-muted mb-4">Your security and satisfaction are our top priorities</p>
+                                <div class="trust-stats d-flex justify-content-center gap-4 flex-wrap">
+                                    <div class="stat-item">
+                                        <h4 class="text-primary mb-0">10,000+</h4>
+                                        <small class="text-muted">Happy Customers</small>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h4 class="text-primary mb-0">99.9%</h4>
+                                        <small class="text-muted">Satisfaction Rate</small>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h4 class="text-primary mb-0">24/7</h4>
+                                        <small class="text-muted">Support Available</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="trust-item enhanced-trust-card animate-on-scroll">
+                                <div class="trust-icon-wrapper">
+                                    <i class="fas fa-award trust-icon"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <div class="trust-content">
+                                    <h5 class="trust-title">Industry Awards</h5>
+                                    <p class="trust-description">Winner of Smart Home Innovation Award 2024</p>
+                                    <div class="trust-badge-small">
+                                        <span>Award Winner</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="trust-item enhanced-trust-card animate-on-scroll">
+                                <div class="trust-icon-wrapper">
+                                    <i class="fas fa-lock trust-icon"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <div class="trust-content">
+                                    <h5 class="trust-title">Secure Payments</h5>
+                                    <p class="trust-description">SSL encrypted checkout with multiple payment options</p>
+                                    <div class="trust-badge-small">
+                                        <span>256-bit SSL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="trust-item enhanced-trust-card animate-on-scroll">
+                                <div class="trust-icon-wrapper">
+                                    <i class="fas fa-shipping-fast trust-icon"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <div class="trust-content">
+                                    <h5 class="trust-title">Free Shipping</h5>
+                                    <p class="trust-description">Free delivery on orders over $299</p>
+                                    <div class="trust-badge-small">
+                                        <span>2-Day Delivery</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="trust-item enhanced-trust-card animate-on-scroll">
+                                <div class="trust-icon-wrapper">
+                                    <i class="fas fa-headset trust-icon"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <div class="trust-content">
+                                    <h5 class="trust-title">24/7 Support</h5>
+                                    <p class="trust-description">Expert customer support whenever you need it</p>
+                                    <div class="trust-badge-small">
+                                        <span>Live Chat</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">EzHome</h5>
+                    <p class="text-muted">Making homes smarter, safer, and more efficient with cutting-edge IoT technology and intelligent automation solutions.</p>
+                    
+                    <div class="app-download mb-3">
+                        <p class="text-muted mb-2">Also available on:</p>
+                        <div class="app-stores">
+                            <a href="#" class="text-decoration-none me-3">
+                                <div class="d-flex align-items-center app-store-btn">
+                                    <i class="fab fa-google-play text-success me-2"></i>
+                                    <span class="text-muted">Google Play Store</span>
+                                </div>
+                            </a>
+                            <!-- <a href="#" class="text-decoration-none">
+                                <div class="d-flex align-items-center app-store-btn">
+                                    <i class="fab fa-apple text-light me-2"></i>
+                                    <span class="text-muted">Apple App Store</span>
+                                </div>
+                            </a> -->
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Admin and Staffs</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="admin.html" class="text-muted text-decoration-none">Admin Panel</a></li>
+                        <li class="mb-2"><a href="orders.html" class="text-muted text-decoration-none">Order Management</a></li>
+                        <li class="mb-2"><a href="product-management.html" class="text-muted text-decoration-none">Product Management</a></li>
+                        <li class="mb-2"><a href="staff.html" class="text-muted text-decoration-none">Staff Portal</a></li>
+                        <li class="mb-2"><a href="profile.html" class="text-muted text-decoration-none">Staff Profile</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="help.html" class="text-muted text-decoration-none">Help Center</a></li>
+                        <li class="mb-2"><a href="installation-guide.html" class="text-muted text-decoration-none">Installation Guide</a></li>
+                        <li class="mb-2"><a href="warranty.html" class="text-muted text-decoration-none">Warranty</a></li>
+                        <li class="mb-2"><a href="returns.html" class="text-muted text-decoration-none">Returns</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="our-team.html" class="text-muted text-decoration-none">Our Team</a></li>
+                        <li class="mb-2"><a href="careers.html" class="text-muted text-decoration-none">Careers</a></li>
+                        <li class="mb-2"><a href="press.html" class="text-muted text-decoration-none">Press</a></li>
+                        <li class="mb-2"><a href="investors.html" class="text-muted text-decoration-none">Investors</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="privacy-policy.html" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms-of-service.html" class="text-muted text-decoration-none">Terms of Service</a></li>
+                        <li class="mb-2"><a href="cookie-policy.html" class="text-muted text-decoration-none">Cookie Policy</a></li>
+                        <li class="mb-2"><a href="gdpr.html" class="text-muted text-decoration-none">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">&copy; 2025 EzHome. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="payment-methods">
+                        <span class="text-muted me-3">We Accept:</span>
+                        <i class="fab fa-cc-visa text-muted me-2"></i>
+                        <i class="fab fa-cc-mastercard text-muted me-2"></i>
+                        <i class="fab fa-cc-paypal text-muted me-2"></i>
+                        <i class="fab fa-cc-apple-pay text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="mb-3">
+                            <label for="login-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="login-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="register-form">
+                        <div class="mb-3">
+                            <label for="register-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="register-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="register-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="register-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="register-phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-address" class="form-label">Address</label>
+                            <textarea class="form-control" id="register-address"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="cart-items">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <!-- Footer content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ratings.js"></script>
+    <script src="js/product-list.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

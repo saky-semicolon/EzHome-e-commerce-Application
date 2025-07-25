@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzHome - Product Management Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .product-body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .product-sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            min-height: calc(100vh - 40px);
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .product-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            min-height: calc(100vh - 40px);
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stock-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stock-in {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+        
+        .stock-low {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+        
+        .stock-out {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+            color: white;
+        }
+        
+        .product-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .category-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary-color);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+    </style>
+</head>
+<body class="product-body">
+    <!-- Product Management Dashboard Container -->
+    <div class="container-fluid px-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="product-sidebar p-4">
+                    <div class="text-center mb-4">
+                        <div class="mb-3">
+                            <i class="fas fa-boxes fa-3x" style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+                        </div>
+                        <h4 class="fw-bold mb-1" style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Product Management</h4>
+                        <p class="text-muted small">Inventory Control Panel</p>
+                    </div>
+                    
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#products" data-tab="products">
+                                <i class="fas fa-list me-2"></i>All Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#categories" data-tab="categories">
+                                <i class="fas fa-tags me-2"></i>Categories
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#inventory" data-tab="inventory">
+                                <i class="fas fa-warehouse me-2"></i>Inventory
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#analytics" data-tab="analytics">
+                                <i class="fas fa-chart-bar me-2"></i>Analytics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin.html">
+                                <i class="fas fa-users me-2"></i>User Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="orders.html">
+                                <i class="fas fa-shopping-cart me-2"></i>Order Management
+                            </a>
+                        </li>
+                        <li class="nav-item mt-3">
+                            <a class="nav-link text-danger" href="index.html" id="logout-btn">
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <div class="product-content p-4">
+                    <!-- Header -->
+                    <div class="admin-header">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <h1 class="fw-bold mb-1">Product Dashboard</h1>
+                                <p class="text-muted mb-0">Manage inventory and product catalog</p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <div class="d-flex align-items-center justify-content-md-end">
+                                    <span class="badge bg-success me-2">
+                                        <i class="fas fa-circle me-1"></i>Online
+                                    </span>
+                                    <small class="text-muted" id="current-time"></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="row mb-4" id="stats-section">
+                        <div class="col-md-3 mb-3">
+                            <div class="stats-card p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-boxes fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-0" id="total-products">0</h3>
+                                        <small class="text-muted">Total Products</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="stats-card p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-check-circle fa-2x text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-0" id="in-stock-products">0</h3>
+                                        <small class="text-muted">In Stock</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="stats-card p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-exclamation-triangle fa-2x text-warning"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-0" id="low-stock-products">0</h3>
+                                        <small class="text-muted">Low Stock</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="stats-card p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-times-circle fa-2x text-danger"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="fw-bold mb-0" id="out-of-stock-products">0</h3>
+                                        <small class="text-muted">Out of Stock</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- Products Tab -->
+                        <div class="tab-pane active" id="products-tab">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h2 class="fw-bold mb-0">Product Management</h2>
+                                <button class="btn btn-gradient" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                                    <i class="fas fa-plus me-2"></i>Add Product
+                                </button>
+                            </div>
+                            
+                            <!-- Search and Filter -->
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control search-box" id="product-search" placeholder="Search products...">
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select search-box" id="category-filter">
+                                        <option value="">All Categories</option>
+                                        <option value="Security">Security</option>
+                                        <option value="Lighting">Lighting</option>
+                                        <option value="Climate">Climate</option>
+                                        <option value="Entertainment">Entertainment</option>
+                                        <option value="Garden">Garden</option>
+                                        <option value="Automation">Automation</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select search-box" id="stock-filter">
+                                        <option value="">All Stock Levels</option>
+                                        <option value="in-stock">In Stock</option>
+                                        <option value="low-stock">Low Stock (≤10)</option>
+                                        <option value="out-of-stock">Out of Stock</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="user-table">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th><i class="fas fa-image me-2"></i>Image</th>
+                                            <th><i class="fas fa-box me-2"></i>Product Name</th>
+                                            <th><i class="fas fa-tag me-2"></i>Category</th>
+                                            <th><i class="fas fa-dollar-sign me-2"></i>Price</th>
+                                            <th><i class="fas fa-warehouse me-2"></i>Stock</th>
+                                            <th><i class="fas fa-info-circle me-2"></i>Status</th>
+                                            <th><i class="fas fa-cogs me-2"></i>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="product-list">
+                                        <!-- Product list will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Other tabs content -->
+                        <div class="tab-pane" id="categories-tab">
+                            <h2 class="fw-bold mb-4">Category Management</h2>
+                            <div class="stats-card p-4">
+                                <h5 class="fw-bold mb-3">Product Categories</h5>
+                                <div class="text-center">
+                                    <i class="fas fa-tags fa-4x text-primary mb-3"></i>
+                                    <p class="text-muted">Category management coming soon...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="inventory-tab">
+                            <h2 class="fw-bold mb-4">Inventory Management</h2>
+                            <div class="stats-card p-4">
+                                <h5 class="fw-bold mb-3">Inventory Control</h5>
+                                <div class="text-center">
+                                    <i class="fas fa-warehouse fa-4x text-success mb-3"></i>
+                                    <p class="text-muted">Advanced inventory features coming soon...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="analytics-tab">
+                            <h2 class="fw-bold mb-4">Product Analytics</h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="stats-card p-4 mb-4">
+                                        <h5 class="fw-bold mb-3">Sales Performance</h5>
+                                        <div class="text-center">
+                                            <i class="fas fa-chart-bar fa-4x text-success mb-3"></i>
+                                            <p class="text-muted">Product analytics coming soon...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="stats-card p-4 mb-4">
+                                        <h5 class="fw-bold mb-3">Inventory Trends</h5>
+                                        <div class="text-center">
+                                            <i class="fas fa-chart-line fa-4x text-primary mb-3"></i>
+                                            <p class="text-muted">Trend analysis coming soon...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="border-radius: 20px; border: none; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);">
+                <div class="modal-header" style="background: var(--success-gradient); color: white; border-radius: 20px 20px 0 0; border: none;">
+                    <h5 class="modal-title fw-bold">
+                        <i class="fas fa-plus me-2"></i>Add New Product
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="add-product-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="add-product-name" class="form-label fw-semibold">
+                                        <i class="fas fa-tag me-1"></i>Product Name
+                                    </label>
+                                    <input type="text" class="form-control search-box" id="add-product-name" placeholder="Enter product name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="add-product-category" class="form-label fw-semibold">
+                                        <i class="fas fa-folder me-1"></i>Category
+                                    </label>
+                                    <select class="form-select search-box" id="add-product-category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="Security">Security</option>
+                                        <option value="Lighting">Lighting</option>
+                                        <option value="Climate">Climate</option>
+                                        <option value="Entertainment">Entertainment</option>
+                                        <option value="Garden">Garden</option>
+                                        <option value="Automation">Automation</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="add-product-price" class="form-label fw-semibold">
+                                        <i class="fas fa-dollar-sign me-1"></i>Price (SGD)
+                                    </label>
+                                    <input type="number" class="form-control search-box" id="add-product-price" step="0.01" min="0" placeholder="0.00" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="add-product-stock" class="form-label fw-semibold">
+                                        <i class="fas fa-cubes me-1"></i>Stock Quantity
+                                    </label>
+                                    <input type="number" class="form-control search-box" id="add-product-stock" min="0" placeholder="0" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="add-product-image" class="form-label fw-semibold">
+                                        <i class="fas fa-image me-1"></i>Product Image
+                                    </label>
+                                    <input type="text" class="form-control search-box" id="add-product-image" placeholder="Image filename (e.g., product.jpg)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-product-description" class="form-label fw-semibold">
+                                <i class="fas fa-align-left me-1"></i>Description
+                            </label>
+                            <textarea class="form-control search-box" id="add-product-description" rows="3" placeholder="Enter product description..."></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="add-product-features" class="form-label fw-semibold">
+                                        <i class="fas fa-list me-1"></i>Key Features
+                                    </label>
+                                    <textarea class="form-control search-box" id="add-product-features" rows="2" placeholder="Enter key features (one per line)..."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="add-product-specifications" class="form-label fw-semibold">
+                                        <i class="fas fa-cog me-1"></i>Specifications
+                                    </label>
+                                    <textarea class="form-control search-box" id="add-product-specifications" rows="2" placeholder="Enter technical specifications..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 p-4">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal" style="border-radius: 12px; padding: 0.75rem 1.5rem;">
+                        <i class="fas fa-times me-1"></i>Cancel
+                    </button>
+                    <button type="submit" form="add-product-form" class="btn btn-gradient">
+                        <i class="fas fa-plus me-1"></i>Add Product
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Edit Product Modal -->
+    <div class="modal fade" id="editProductModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="border-radius: 20px; border: none; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);">
+                <div class="modal-header" style="background: var(--primary-gradient); color: white; border-radius: 20px 20px 0 0; border: none;">
+                    <h5 class="modal-title fw-bold">
+                        <i class="fas fa-edit me-2"></i>Edit Product
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="edit-product-form">
+                        <input type="hidden" id="edit-product-id">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="edit-product-name" class="form-label fw-semibold">
+                                        <i class="fas fa-tag me-1"></i>Product Name
+                                    </label>
+                                    <input type="text" class="form-control search-box" id="edit-product-name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="edit-product-category" class="form-label fw-semibold">
+                                        <i class="fas fa-folder me-1"></i>Category
+                                    </label>
+                                    <select class="form-select search-box" id="edit-product-category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="Security">Security</option>
+                                        <option value="Lighting">Lighting</option>
+                                        <option value="Climate">Climate</option>
+                                        <option value="Entertainment">Entertainment</option>
+                                        <option value="Garden">Garden</option>
+                                        <option value="Automation">Automation</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="edit-product-price" class="form-label fw-semibold">
+                                        <i class="fas fa-dollar-sign me-1"></i>Price (SGD)
+                                    </label>
+                                    <input type="number" class="form-control search-box" id="edit-product-price" step="0.01" min="0" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="edit-product-stock" class="form-label fw-semibold">
+                                        <i class="fas fa-cubes me-1"></i>Stock Quantity
+                                    </label>
+                                    <input type="number" class="form-control search-box" id="edit-product-stock" min="0" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="edit-product-image" class="form-label fw-semibold">
+                                        <i class="fas fa-image me-1"></i>Product Image
+                                    </label>
+                                    <input type="text" class="form-control search-box" id="edit-product-image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-product-description" class="form-label fw-semibold">
+                                <i class="fas fa-align-left me-1"></i>Description
+                            </label>
+                            <textarea class="form-control search-box" id="edit-product-description" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 p-4">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal" style="border-radius: 12px; padding: 0.75rem 1.5rem;">
+                        <i class="fas fa-times me-1"></i>Cancel
+                    </button>
+                    <button type="submit" form="edit-product-form" class="btn btn-gradient">
+                        <i class="fas fa-save me-1"></i>Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+                            <label for="add-product-description" class="form-label">
+                                <i class="fas fa-align-left me-1"></i>Description
+                            </label>
+                            <textarea class="form-control" id="add-product-description" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-product-image" class="form-label">
+                                <i class="fas fa-image me-1"></i>Product Image
+                            </label>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="add-product-image-file" 
+                                               accept="image/*" onchange="handleImageUpload(this, 'add')">
+                                        <button class="btn btn-outline-secondary" type="button" 
+                                                onclick="$('#add-product-image-file').click()">
+                                            <i class="fas fa-upload me-1"></i>Browse
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">Upload an image file (JPG, PNG, GIF)</small>
+                                </div>
+                                <div class="col-md-4">
+                                    <div id="add-image-preview" class="border rounded p-2 text-center" 
+                                         style="height: 100px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa;">
+                                        <i class="fas fa-image fa-2x text-muted"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <small class="text-info">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Alternative: Enter image path manually
+                                </small>
+                                <input type="text" class="form-control mt-1" id="add-product-image-path" 
+                                       placeholder="Or enter image path (e.g., images/product-name.jpg)">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-product-features" class="form-label">
+                                <i class="fas fa-list me-1"></i>Key Features (one per line)
+                            </label>
+                            <textarea class="form-control" id="add-product-features" rows="4" placeholder="Feature 1&#10;Feature 2&#10;Feature 3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>Cancel
+                    </button>
+                    <button type="submit" form="add-product-form" class="btn btn-success">
+                        <i class="fas fa-save me-1"></i>Add Product
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div class="modal fade" id="editProductModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">
+                        <i class="fas fa-edit me-2"></i>Edit Product
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-product-form">
+                        <input type="hidden" id="edit-product-id">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="edit-product-name" class="form-label">
+                                        <i class="fas fa-tag me-1"></i>Product Name
+                                    </label>
+                                    <input type="text" class="form-control" id="edit-product-name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="edit-product-category" class="form-label">
+                                        <i class="fas fa-folder me-1"></i>Category
+                                    </label>
+                                    <select class="form-select" id="edit-product-category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="Security">Security</option>
+                                        <option value="Lighting">Lighting</option>
+                                        <option value="Climate">Climate</option>
+                                        <option value="Entertainment">Entertainment</option>
+                                        <option value="Garden">Garden</option>
+                                        <option value="Automation">Automation</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="edit-product-price" class="form-label">
+                                        <i class="fas fa-dollar-sign me-1"></i>Price (SGD)
+                                    </label>
+                                    <input type="number" class="form-control" id="edit-product-price" step="0.01" min="0" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="edit-product-stock" class="form-label">
+                                        <i class="fas fa-cubes me-1"></i>Stock Quantity
+                                    </label>
+                                    <input type="number" class="form-control" id="edit-product-stock" min="0" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-product-description" class="form-label">
+                                <i class="fas fa-align-left me-1"></i>Description
+                            </label>
+                            <textarea class="form-control" id="edit-product-description" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-product-image" class="form-label">
+                                <i class="fas fa-image me-1"></i>Product Image
+                            </label>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="edit-product-image-file" 
+                                               accept="image/*" onchange="handleImageUpload(this, 'edit')">
+                                        <button class="btn btn-outline-secondary" type="button" 
+                                                onclick="$('#edit-product-image-file').click()">
+                                            <i class="fas fa-upload me-1"></i>Change Image
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">Upload a new image file (JPG, PNG, GIF)</small>
+                                </div>
+                                <div class="col-md-4">
+                                    <div id="edit-image-preview" class="border rounded p-2 text-center" 
+                                         style="height: 100px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa;">
+                                        <i class="fas fa-image fa-2x text-muted"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <small class="text-info">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Current image path or enter new path manually
+                                </small>
+                                <input type="text" class="form-control mt-1" id="edit-product-image-path" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-product-features" class="form-label">
+                                <i class="fas fa-list me-1"></i>Key Features (one per line)
+                            </label>
+                            <textarea class="form-control" id="edit-product-features" rows="4"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>Cancel
+                    </button>
+                    <button type="submit" form="edit-product-form" class="btn btn-primary">
+                        <i class="fas fa-save me-1"></i>Update Product
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">EzHome</h5>
+                    <p class="text-muted">Making homes smarter, safer, and more efficient with cutting-edge IoT technology.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Support</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="help.html" class="text-muted text-decoration-none">Help Center</a></li>
+                                <li class="mb-2"><a href="installation-guide.html" class="text-muted text-decoration-none">Installation Guide</a></li>
+                                <li class="mb-2"><a href="warranty.html" class="text-muted text-decoration-none">Warranty</a></li>
+                                <li class="mb-2"><a href="returns.html" class="text-muted text-decoration-none">Returns</a></li>
+                                <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Company</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                                <li class="mb-2"><a href="our-team.html" class="text-muted text-decoration-none">Our Team</a></li>
+                                <li class="mb-2"><a href="careers.html" class="text-muted text-decoration-none">Careers</a></li>
+                                <li class="mb-2"><a href="press.html" class="text-muted text-decoration-none">Press</a></li>
+                                <li class="mb-2"><a href="investors.html" class="text-muted text-decoration-none">Investors</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Legal</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="privacy-policy.html" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                                <li class="mb-2"><a href="terms-of-service.html" class="text-muted text-decoration-none">Terms of Service</a></li>
+                                <li class="mb-2"><a href="cookie-policy.html" class="text-muted text-decoration-none">Cookie Policy</a></li>
+                                <li class="mb-2"><a href="gdpr.html" class="text-muted text-decoration-none">GDPR</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h6 class="fw-bold mb-3">Contact</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                                <li class="mb-2"><span class="text-muted">1-800-EZHOME-1</span></li>
+                                <li class="mb-2"><span class="text-muted">support@ezhome.com</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0 text-muted">&copy; 2025 EzHome. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/product-management-enhanced.js"></script>
+</body>
+</html>

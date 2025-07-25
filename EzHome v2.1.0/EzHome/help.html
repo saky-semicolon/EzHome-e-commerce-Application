@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzHome - Help Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">EzHome</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                    <div id="user-auth" class="d-flex">
+                        <a href="#" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+                    </div>
+                    <div id="cart-icon" class="ms-3">
+                        <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            Cart (<span id="cart-count">0</span>)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="help-page">
+        <!-- Hero Section -->
+        <section class="help-hero">
+            <div class="container">
+                <div class="row align-items-center min-vh-50">
+                    <div class="col-lg-6 order-lg-1 order-2">
+                        <div class="hero-content animate-fade-up">
+                            <h1 class="display-4 fw-bold mb-4">Help Center</h1>
+                            <p class="lead text-muted mb-4">
+                                Get answers to your questions and learn how to make the most of your EzHome smart home solutions.
+                            </p>
+                            <div class="hero-search">
+                                <div class="search-container">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input type="text" class="form-control search-input" placeholder="Search for help topics...">
+                                    <button class="btn btn-primary search-btn">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2 order-1 mb-lg-0 mb-4">
+                        <div class="hero-image animate-fade-up">
+                            <div class="help-visual">
+                                <i class="fas fa-question-circle help-icon"></i>
+                                <div class="floating-elements">
+                                    <div class="floating-element element-1">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="floating-element element-2">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="floating-element element-3">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Help Section -->
+        <section class="quick-help py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="section-header text-center mb-5">
+                            <h2 class="section-title">Quick Help Topics</h2>
+                            <p class="section-subtitle">Find answers to common questions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Getting Started Card -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="help-card h-100 animate-fade-up" data-delay="0.1">
+                            <div class="help-icon-wrapper">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <h4>Getting Started</h4>
+                            <p>Learn the basics of using EzHome app and setting up your smart home devices.</p>
+                            <ul class="help-list">
+                                <li><i class="fas fa-check-circle me-2"></i>Account Setup</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Device Installation</li>
+                                <li><i class="fas fa-check-circle me-2"></i>First Time Setup</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Shopping Guide Card -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="help-card h-100 animate-fade-up" data-delay="0.2">
+                            <div class="help-icon-wrapper">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h4>Shopping Guide</h4>
+                            <p>Everything you need to know about browsing, purchasing, and managing orders.</p>
+                            <ul class="help-list">
+                                <li><i class="fas fa-check-circle me-2"></i>Product Search</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Add to Cart</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Checkout Process</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Technical Support Card -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="help-card h-100 animate-fade-up" data-delay="0.3">
+                            <div class="help-icon-wrapper">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4>Technical Support</h4>
+                            <p>Troubleshooting guides and technical assistance for your smart home devices.</p>
+                            <ul class="help-list">
+                                <li><i class="fas fa-check-circle me-2"></i>Device Troubleshooting</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Connectivity Issues</li>
+                                <li><i class="fas fa-check-circle me-2"></i>Software Updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Use Section -->
+        <section class="how-to-use py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="section-header text-center mb-5">
+                            <h2 class="section-title">How to Use the App</h2>
+                            <p class="section-subtitle">Step-by-step guide to navigate EzHome</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Search Feature -->
+                    <div class="col-lg-6">
+                        <div class="feature-card animate-fade-up" data-delay="0.1">
+                            <div class="feature-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Search Products</h5>
+                                <p>Use the search bar on the homepage to find specific smart home products. Type keywords like "smart bulb", "security camera", or browse by categories.</p>
+                                <div class="feature-tips">
+                                    <small class="text-muted">
+                                        <i class="fas fa-lightbulb me-1"></i>
+                                        Tip: Use specific product names for better results
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shopping Cart -->
+                    <div class="col-lg-6">
+                        <div class="feature-card animate-fade-up" data-delay="0.2">
+                            <div class="feature-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Shopping Cart</h5>
+                                <p>Click "Add to Cart" on any product page. View your cart by clicking the cart icon in the navigation bar. Manage quantities and remove items as needed.</p>
+                                <div class="feature-tips">
+                                    <small class="text-muted">
+                                        <i class="fas fa-lightbulb me-1"></i>
+                                        Tip: Cart items are saved even if you leave the page
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Process -->
+                    <div class="col-lg-6">
+                        <div class="feature-card animate-fade-up" data-delay="0.3">
+                            <div class="feature-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Checkout</h5>
+                                <p>When ready to purchase, click "Checkout" in your cart. Fill in your shipping information, select payment method, and confirm your order.</p>
+                                <div class="feature-tips">
+                                    <small class="text-muted">
+                                        <i class="fas fa-lightbulb me-1"></i>
+                                        Tip: Create an account to save payment info
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Management -->
+                    <div class="col-lg-6">
+                        <div class="feature-card animate-fade-up" data-delay="0.4">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Login & Register</h5>
+                                <p>Create an account or log in to save your information, track orders, and access exclusive features. Click Login/Register in the top navigation.</p>
+                                <div class="feature-tips">
+                                    <small class="text-muted">
+                                        <i class="fas fa-lightbulb me-1"></i>
+                                        Tip: Registered users get faster checkout
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultancy Section -->
+        <section class="consultancy-section py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="consultancy-card animate-fade-up">
+                            <div class="consultancy-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="consultancy-content">
+                                <h3>Need Personal Consultation?</h3>
+                                <p class="lead">Our smart home experts are ready to help you design the perfect automated living experience tailored to your needs.</p>
+                                <div class="consultancy-features">
+                                    <div class="row g-3">
+                                        <div class="col-md-4">
+                                            <div class="feature-item">
+                                                <i class="fas fa-home me-2"></i>
+                                                <span>Home Assessment</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="feature-item">
+                                                <i class="fas fa-cogs me-2"></i>
+                                                <span>Custom Solutions</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="feature-item">
+                                                <i class="fas fa-headset me-2"></i>
+                                                <span>Expert Support</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="consultancy-actions">
+                                    <a href="http://www.ezhome.com.sg/consultation" target="_blank" class="btn btn-primary btn-lg me-3">
+                                        <i class="fas fa-calendar me-2"></i>Book Consultation
+                                    </a>
+                                    <a href="contact.html" class="btn btn-outline-primary btn-lg">
+                                        <i class="fas fa-phone me-2"></i>Contact Us
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="section-header text-center mb-5">
+                            <h2 class="section-title">Frequently Asked Questions</h2>
+                            <p class="section-subtitle">Quick answers to common questions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion" id="faqAccordion">
+                            <!-- FAQ Item 1 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        How do I set up my smart home devices?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Each device comes with a detailed setup guide. Generally, you'll need to download the EzHome app, create an account, and follow the in-app instructions to connect your devices to your Wi-Fi network.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 2 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        What payment methods do you accept?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        We accept all major credit cards (Visa, MasterCard, American Express), PayPal, Apple Pay, and bank transfers for larger orders.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 3 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        How long is the warranty on smart home products?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Most of our smart home products come with a 2-year manufacturer warranty. Premium products may have extended warranties up to 5 years. Check individual product pages for specific warranty information.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 4 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                        Do you offer installation services?
+                                    </button>
+                                </h2>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes! We offer professional installation services for complex systems. Our certified technicians can set up your entire smart home ecosystem. Contact us for installation quotes and scheduling.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">EzHome</h5>
+                    <p class="text-muted">Making homes smarter, safer, and more efficient with cutting-edge IoT technology and intelligent automation solutions.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Admin and Staffs</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="admin.html" class="text-muted text-decoration-none">Admin Panel</a></li>
+                        <li class="mb-2"><a href="staff.html" class="text-muted text-decoration-none">Staff Area</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">User Management</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Reports</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Settings</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="help.html" class="text-muted text-decoration-none">Help Center</a></li>
+                        <li class="mb-2"><a href="installation-guide.html" class="text-muted text-decoration-none">Installation Guide</a></li>
+                        <li class="mb-2"><a href="warranty.html" class="text-muted text-decoration-none">Warranty</a></li>
+                        <li class="mb-2"><a href="returns.html" class="text-muted text-decoration-none">Returns</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-muted text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="our-team.html" class="text-muted text-decoration-none">Our Team</a></li>
+                        <li class="mb-2"><a href="careers.html" class="text-muted text-decoration-none">Careers</a></li>
+                        <li class="mb-2"><a href="press.html" class="text-muted text-decoration-none">Press</a></li>
+                        <li class="mb-2"><a href="investors.html" class="text-muted text-decoration-none">Investors</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="privacy-policy.html" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="terms-of-service.html" class="text-muted text-decoration-none">Terms of Service</a></li>
+                        <li class="mb-2"><a href="cookie-policy.html" class="text-muted text-decoration-none">Cookie Policy</a></li>
+                        <li class="mb-2"><a href="gdpr.html" class="text-muted text-decoration-none">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Mobile App Availability -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h6 class="fw-bold mb-3">Get Our Mobile App</h6>
+                    <div class="app-store-links">
+                        <a href="#" class="app-store-btn me-3">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHJ4PSI4IiBmaWxsPSIjMDAwIi8+PHRleHQgeD0iMTAiIHk9IjE1IiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOHB4Ij5Eb3dubG9hZCBvbiB0aGU8L3RleHQ+PHRleHQgeD0iMTAiIHk9IjMwIiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTRweCIgZm9udC13ZWlnaHQ9ImJvbGQiPkFwcCBTdG9yZTwvdGV4dD48L3N2Zz4=" alt="Download on the App Store" style="height: 40px;">
+                        </a>
+                        <a href="#" class="app-store-btn">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM1IiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTM1IDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMzUiIGhlaWdodD0iNDAiIHJ4PSI4IiBmaWxsPSIjMDAwIi8+PHRleHQgeD0iMTAiIHk9IjE1IiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOHB4Ij5HRVQgSVQgT048L3RleHQ+PHRleHQgeD0iMTAiIHk9IjMwIiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTRweCIgZm9udC13ZWlnaHQ9ImJvbGQiPkdvb2dsZSBQbGF5PC90ZXh0Pjwvc3ZnPg==" alt="Get it on Google Play" style="height: 40px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">&copy; 2025 EzHome. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="payment-methods">
+                        <span class="text-muted me-3">We Accept:</span>
+                        <i class="fab fa-cc-visa text-muted me-2"></i>
+                        <i class="fab fa-cc-mastercard text-muted me-2"></i>
+                        <i class="fab fa-cc-paypal text-muted me-2"></i>
+                        <i class="fab fa-cc-apple-pay text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="mb-3">
+                            <label for="login-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="login-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="register-form">
+                        <div class="mb-3">
+                            <label for="register-username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="register-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="register-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="register-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="register-phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-address" class="form-label">Address</label>
+                            <textarea class="form-control" id="register-address"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="cart-items">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <!-- Footer content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
