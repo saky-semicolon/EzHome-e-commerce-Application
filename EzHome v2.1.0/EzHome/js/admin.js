@@ -17,7 +17,7 @@ $(document).ready(function() {
         localStorage.setItem('users', JSON.stringify(users));
         
         // Show info about default admin
-        console.log('Default admin user created - Username: admin, Password: admin123');
+        console.log('Default admin user created - Username: admin, Password: ****');
     }
 
     const currentUser = getCurrentUser();
@@ -90,7 +90,7 @@ function showAdminLoginPopup() {
                         <div class="mt-4 p-3" style="background: rgba(102, 126, 234, 0.05); border-radius: 12px;">
                             <small class="text-muted">
                                 <i class="fas fa-lightbulb me-1"></i>
-                                <strong>Default credentials:</strong> admin / admin123
+                                <strong>Default credentials:</strong> admin / ****
                             </small>
                         </div>
                     </div>

@@ -32,7 +32,7 @@ function showAdminLogin() {
                                 <button type="submit" class="btn btn-primary w-100">Login</button>
                             </form>
                             <div class="mt-3 text-center">
-                                <small class="text-muted">Default: admin / admin123</small>
+                                <small class="text-muted">Default: admin / ****</small>
                             </div>
                         </div>
                     </div>
@@ -48,10 +48,10 @@ function showAdminLogin() {
         const username = $('#admin-username').val();
         const password = $('#admin-password').val();
         
-        if (username === 'admin' && password === 'admin123') {
+        if (username === 'admin' && password === 'admin9622') {
             const adminUser = {
                 username: 'admin',
-                password: 'admin123',
+                password: 'admin9622',
                 role: 'Admin',
                 email: 'admin@ezhome.com'
             };
