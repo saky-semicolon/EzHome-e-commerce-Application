@@ -327,6 +327,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Augmented Reality product preview**
 - **Integration with major smart home platforms**
 
+Thank you!
+
 ---
 
 **Developed by [Saky](https://www.saky.space)**
